@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <meta name="author" content="Kenny Moreira ">
+    <title>Eventos Deportivos</title>
+    <style>
+        /* Hojas de estilo internas */
+
+        *{
+            box-sizing: border-box; /* Selector Universal */
+        }
+
+        
+        header + main {
+            margin-top: 10px; /* Selector de hermano adyacente */
+        }
+
+        main > section {
+            padding: 20px; /* Selector de hijos */
+        }
+
+        section h2, div aside h2 {
+            color: black; /* Selector de descendientes */
+            text-align: left;
+        }
+
+
+        section ul li{
+            margin-bottom: 10px;
+        }
+
+        article figure img{
+            width: 70px;
+            height: 70px;
+            display: block;
+            max-width: 100px;
+            float:right;
+            margin-left: 20px;
+        }
+
+        #Contacto {
+            padding: 10px;
+            border: 3px dashed blue;
+            background-color: #ffe4c4;
+            text-align: left;
+            margin-top: 80px;
+            margin-bottom: 30px;
+            margin-right: 20px;
+        }
+
+        #Redes {
+            padding: 10px;  
+            border: 3px dashed red;
+            background-color: #ffe4c4;
+            text-align:left;
+            margin-bottom: 10px;
+            margin-right: 20px;
+        }
+
+        .lista-horizontal {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista-horizontal li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+
+        .contenido img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .texto-contenido {
+            border: 2px double #253c39;
+            padding: 10px;
+            background-color: #ffe4c4;
+        }
+
+        /* Pseudoclases */
+        a:hover {
+            text-decoration: underline;
+            color:rgb(255, 0, 128);
+        }
+
+        ul li:first-child {
+            margin-left: 0;
+        }
+
+        /* Pseudo-elementos*/
+        p::first-line {
+            font-weight: normal;
+        }
+
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+
+        /*RESPONSIVE*/
+
+        nav ul {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        /* Media Queries para diseño responsive */
+        @media (min-width: 600px) {
+            main {
+                grid-template-columns: 1fr 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                text-align: center;
+            }
+
+            #logoContenedor {
+                float: left;
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .lista-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contenido {
+                align-items: flex-start;
+            }
+
+            .contenido2 {
+                margin-top: -100px;
+                margin-left: 20px;
+            }
+
+            .contenido img {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+                float: right;
+            }
+
+    
+        }
+       
+    </style>
+    
+
+</head>
+
+<body>
+    <header> 
+        <div class ="container">
+            <aside id="logoContenedor">
+                <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
+             </aside>
+
+            <h1>Eventos Deportivos</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="equipos.html">Equipos</a></li>
+                    <li><a href="resultados.html">Resultados</a></li>
+                    <li><a href="nosotros.html" Id="active">Nosotros</a></li>
+                </ul>
+            </nav>       
+        </div>
+    </header>
+
+    <main>
+        
+        <section>
+            <h2>Sobre Nosotros</h2>
+            <article>
+                <figure>
+                    <img src="assets/img/Nosotros/liga_pro.webp" alt="liga_pro">
+                </figure>
+                <p>Bienvenidos a nuestra página dedicada a los eventos deportivos de <em>fútbol nacional en Ecuador</em>. Somos un equipo apasionado por el deporte rey y estamos comprometidos a ofrecer la <strong> mejor </strong> cobertura y análisis del fútbol ecuatoriano. Desde las emocionantes ligas locales hasta los vibrantes torneos nacionales, nuestro objetivo es mantenerte informado y conectado con todo lo que sucede en el mundo del fútbol en Ecuador.</p>
+
+                <h2>Nuestra Misión</h2>
+                <figure>
+                    <img src="assets/img/Nosotros/mision.png" alt="mision">
+                </figure>
+                <p>Nuestra misión es ser la fuente principal de información y entretenimiento para los aficionados del fútbol ecuatoriano. Nos esforzamos por proporcionar noticias actualizadas, análisis profundos y contenido exclusivo que celebre la rica cultura futbolística de nuestro país. Queremos fomentar el amor por el deporte y crear una comunidad donde los fanáticos puedan compartir su pasión.</p>
+        
+                <h2>Qué Ofrecemos</h2>
+
+                <ul class="lista-horizontal">
+                    <li>
+                        <div class="contenido">
+                            <img src="assets/img/Nosotros/cobertura.png" alt="cobertura">
+                            <div class="texto-contenido">
+                                <strong>Cobertura Completa:</strong> Ofrecemos noticias y actualizaciones diarias sobre la Serie A y Serie B del fútbol ecuatoriano, así como sobre la participación de nuestros equipos en competiciones internacionales.
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="contenido">
+                            <img src="assets/img/Nosotros/calendario.png" alt="calendario">
+                            <div class="texto-contenido">
+                                <strong>Calendario:</strong> Compartimos el calendario actualizado de cada partido de la Serie A y Serie B del fútbol ecuatoriano.
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="contenido">
+                            <img id="en_vivo" src="assets/img/Nosotros/en_vivo.png" alt="evento en vivo">
+                            <div class="texto-contenido">
+                                <strong>Eventos en Vivo:</strong> Te mantenemos informado sobre los eventos en vivo, desde partidos clave hasta conferencias de prensa y eventos especiales relacionados con el fútbol.
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+        
+                <h2>Nuestro Compromiso</h2>
+                <figure>
+                    <img src="assets/img/Nosotros/compromiso.png" alt="compromiso">
+                </figure>
+                <p>Estamos comprometidos con la precisión, la imparcialidad y la excelencia en la información. Creemos en la importancia de trabajar arduamente para mantener informado correctamente a nuestro público sobre el fútbol ecuatoriano</p>
+                
+                <h2>Únete a Nuestra Comunidad</h2>
+                <figure>
+                    <img src="assets/img/Nosotros/comunidad.png" alt="comunidad">
+                </figure>
+                <p>Te invitamos a unirte a nuestra creciente comunidad de aficionados del fútbol ecuatoriano. Síguenos en nuestras redes sociales, participa en nuestros foros de discusión y visita nuestra pagina para recibir las últimas noticias y actualizaciones del fútbol ecuatoriano</p>
+                <p>Agradecemos que quieran formar parte de esta hermosa comunidad. Juntos, celebraremos cada gol, cada triunfo y cada momento que hace del fútbol el deporte más hermoso del mundo.</p>
+                <p><strong>KENNY BRYAN MOREIRA SANTOS</strong></p>
+            </article>
+        </section>
+
+        <div class="contenido2">
+            <aside id="Contacto">
+                <h2>Contacto</h2>   
+                <p>Puedes contactarnos a traves de nuestro correo electrónico: <a href="mailto:info@eventosdeportivos.com">info@eventosdeportivos.com</a>.</p>
+                <p>¡Nos encantaría escuchar tus opiniones y sugerencias!</p>
+            </aside>
+
+            <aside id="Redes">
+                <h2>Redes Sociales</h2>
+                <ul>
+                    <li><a href="https://x.com/home">Twitter</a>: Mantente al día con las últimas noticias en tiempo real.</li>
+                    <li><a href="https://www.instagram.com">Instagram</a>: Disfruta de fotos exclusivas y detrás de escenas en nuestra cuenta de Instagram.</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="FooterContenedor"> 
+            <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
+        </div> 
+    </footer>
+</body>
+</html>
+
+

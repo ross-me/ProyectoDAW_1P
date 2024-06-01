@@ -1,0 +1,94 @@
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+   /* Pseudoclases */
+   a:hover {
+    text-decoration: underline;
+    color:rgb(160, 215, 247);
+}
+
+
+h2 {
+    text-align: justify;
+    font-size: 16 pt;
+    margin: 20px 0;
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    /*background-color: rgb(73, 132, 143) ;*/
+    background-color: rgb(216, 232, 240);
+}
+
+header, footer {
+    background-color: rgb(6, 16, 51);
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.FooterContenedor{
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+}
+
+
+/*Organizar el logo*/
+#logoContenedor {
+    float: left;
+    text-align: center;
+}
+
+#logo{
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100px;
+}
+/*---------*/
+
+
+/*Administrar el nav*/
+nav {
+    border-top-style:dashed;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(6, 16, 51);
+    padding: 0.5em;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li{
+    display: inline;
+    margin-right: 25pt;
+}
+
+ #active{
+    color: rgb(255, 229, 84);
+    font-weight: bold;
+ }
+
+th {
+    background-color: rgb(6, 16, 51);
+    color: white;
+}
+
+th, td {
+    border: 1px solid rgb(6, 16, 51);
+    text-align: center;
+    padding: 5px;;
+}
+
+
+/*---------*/

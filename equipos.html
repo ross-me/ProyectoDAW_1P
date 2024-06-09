@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/estilos.css">    
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <meta name="description" content="Informacion sobre los equipos inscritos">
     <meta name="keywords" content="Equipos, Deporte, Campeonato">
     <meta name="author" content="Adela Rossmery Ocampo Angulo">
     <title>Eventos Deportivos</title>
 
     <style>
+        #contenedorPrincipal{
+            width: 90%;
+            margin:auto;
+        }
+        .elemento{
+            /*border: 1px solid green; ver las filas y columnas*/
+            border-radius:10px;
+            min-width: 105px;
+            margin-top:5px;
+
+        }
         /*Color de fondo*/
         body{
             background-color: rgb(240, 245, 252);
@@ -17,43 +29,24 @@
         h3{            
            font-size: 16pt;
             margin: 0;
-            padding: 20px 0 0 20px;
+            margin-bottom: 8px;                    
         }
-        h4{
-            padding-left: 20px;
+        h4{           
+            font-size: 15pt;
         }
         h5{
-            font-size: 12pt;
+            font-size: 10pt;
             text-decoration: underline;
         }
-        
-       
-
-        /*Maquetacion: Grid*/
+        h2{
+            font-size: 18pt;
+            margin-bottom: 0px;
+        }
         #contenedorContenido{
             width: 90%;
             margin: 0 auto;
-            
-
         }
-
-       
-        #content{
-            
-            display: grid;            
-            grid-template-rows: auto;            
-            grid-template-columns: 20% 70%;
-            grid-gap: 15px 20px;
-            margin-bottom: 50px;
-            margin-left: 25px;
-            margin-right: 25px;
-            
-        }
-        
         .contenidoIzquierdo {
-            grid-row: 2/3;
-            grid-column: 1/2;
-            border: 1px solid rgb(181, 181, 194);
             border-radius: 10px;
             padding: 10px;
             min-width: 105px;
@@ -61,66 +54,35 @@
             margin-top: 5px;
         }
         .contenidoRelacionado{
-            grid-row: 3/4;
-            grid-column: 1/2;            
-            
             border-radius: 10px;
             padding: 10px;
             min-width: 105px;
-            margin-left: 5px;
-            margin-top: 5px;
+            margin-left: 20px;
+            margin-top: 15px;
             font-size: 10pt;
+            border: 1px solid  rgb(181, 181, 194);
+            font-size: 9pt;
+            margin-bottom: 20px;
+        
         }
-
         .contenidoTitulo{
-            grid-row: 1;
-            grid-column: 1/4;                        
-            border-radius: 10px;
-            padding: 10px;
+            padding-left: 10px;
+            padding-top: 10px;
             height: fit-content;
             margin-left: 5px;
-            margin-top: 5px;
-            
+            margin-top: 5px;            
         }
-
-        .contenidoDerecho {
-            grid-row: 2/6;
-            grid-column: 2/4;
-            
-            border: 1px solid rgb(193, 194, 206);
-            border-radius: 10px;
-            padding:10px;            
-            min-width: 105px;
-            margin-left: 5px;
-            margin-top: 5px;
-            
-            
-        }
-        
-        /*Tamaño de escudo*/
         .elementoInformacion img {
             width: 100px;
             height: 100px;
         }
-
-        /*Maquetacion: Flexbox*/
-        #informacionEquipo {
-            display: flex;
-            flex-wrap: nowrap;
-            /*wrap multilinea nowrap una solo linea*/
-            flex-direction: row;
-            /*direccion que toma puede ser en fila o columna*/
-            justify-content: center;
-            /*permite justificar a lo largo de su eje o de su linea*/
-            align-items: stretch;
-            /*alinear perpendicular*/
-            gap: 10px 10px;
-            /*distancia entre filas y columnas*/
-            /*border: 1px solid red;*/
-            
-        }
-        #logoEquipo{
+        .logoEquipo{
             flex: 1 1 20%; 
+        }
+        .logoEquipo{
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
         }
         #informac{
             flex: 1 1 45%; 
@@ -128,34 +90,27 @@
         #texto{
             flex: 1 1 30%; 
         }
-
         .elementoInformacion {
             
             border-radius: 10px;
             padding-left: 10px;
             min-width: 105px;
             margin-left: 5px;
-           
-            flex-grow:  2;
-            /*crecimiento del elemento*/
             align-self: center;
-            /*alineacion de un elemento*/
-            
         }
-        #informacionJugadores{
+        .informacionJugadores{
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: center;
             align-items: stretch;
             gap: 10px 30px;
-            /*border: 1px solid rgb(211, 64, 191);*/
             padding-left: 20px;
             margin-bottom: 10px;
         }
         .jugador p{
             text-align: center;
-        }
+        }        
         .jugador{
             flex-grow: 0;
             /*crecimiento del elemento*/
@@ -168,24 +123,30 @@
         .jugador img{
             width: 150px;
             height: 150px;
-            border-radius: 20px;
+            border-radius: 15px;
         }
         .jugador img+p{
             font-style: italic;
             color: rgb(55, 55, 133);
+            font-size: small;
+            margin-top: 5px;
         } 
-
         .seleccionarEquipo:hover{
             color: rgb(33, 40, 136);
             font-weight: bold;
+            border: 2px solid rgb(33, 40, 136);
         }
-        #logoEquipo{
-            max-width: 100%;
-            max-height: 100%;
-            overflow: hidden;
+        .seleccionarEquipo{
+            background-color: rgb(223, 231, 255);
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid rgb(102, 114, 151);
+            text-align: center;
         }
+       
 
-        #logoEquipo img {
+        .logoEquipo img {
             max-width: 100%;
             height: auto;
         }
@@ -198,201 +159,940 @@
             font-style: italic;
             color: rgb(136, 136, 136);
         }
-
         /*Enlaces*/
         a:hover{
             color: rgb(23, 23, 207);
             font-weight: bold;
+        }        
+        .infoEquip{
+            border: 1px solid rgb(218, 218, 230);
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
-        
     </style>
 </head>
-
-
 <body>
-    <header> 
-        <div class ="container">
-            <aside id="logoContenedor">
-                <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
-             </aside>
-
-            <h1>Eventos Deportivos</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html" >Inicio</a></li>
-                    <li><a href="calendario.html">Calendario</a></li>
-                    <li><a href="equipos.html"Id="active">Equipos</a></li>
-                    <li><a href="resultados.html">Resultados</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                </ul>
-            </nav>       
-        </div>
-    </header>
-
-    <main>                        
-        <div id="contenedorContenido">
-            <div id="content">
-                <div class="contenidoTitulo">
-                    <h2>Información de Equipos</h2>
-                    <hr>
-                </div>                
-                <div class="contenidoIzquierdo">
-                    <section id="Equiposs">
-                        <h3 style="font-size: 13pt;">Equipos</h3>
-                        <p class="seleccionarEquipo" style="color: rgb(72, 72, 173);">Barcelona </p>
-                        <p class="seleccionarEquipo">Emelec</p>
-                        <p class="seleccionarEquipo">Independiente del Valle</p>
-                        <p class="seleccionarEquipo">Liga de Quito</p>
-                        <p class="seleccionarEquipo">Aucas</p>
-                        <p class="seleccionarEquipo">Nacional</p>                      
-                            
-                    </section>
-                        
-                </div>
-
-                <div class="contenidoRelacionado">
-                    <Aside >
-                        <h5 style="font-size: 10pt;" >Artículos relacionados</h5>
+    <div class="contenedorPrincipal">
+        <div class="row">
+            <header> 
+                <div class ="container elemento col-md-12">
+                    <aside id="logoContenedor">
+                        <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
+                    </aside>        
+                    <h1>Eventos Deportivos</h1>
+                    <nav>
                         <ul>
-                            <li><a href="https://especiales.eluniverso.com/historia-campeonato-ecuatoriano/cronologia/barcelona-logra-ser-el-primer-club-con-cuatro-coronas/" target="_blank">Primer club con 4 coronas</a></li>
-                            <li><a href="https://www.elcomercio.com/deportes/futbol/barcelonasc-eliminado-copa-libertadores.html" target="_blank">Barcelona eliminado de la Copa Libertadores</a></li>
-                        </ul>    
-                    </Aside>
-                    
+                            <li><a href="index.html" >Inicio</a></li>
+                            <li><a href="calendario.html">Calendario</a></li>
+                            <li><a href="equipos.html" Id="active">Equipos</a></li>
+                            <li><a href="resultados.html">Resultados</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                        </ul>
+                    </nav>       
                 </div>
-                <div class="contenidoDerecho">
-                    <h3  style="text-align: center;">Barcelona Sporting Club (<i><abbr title="Barcelona Sporting Club">BSC</abbr></i>)</h3>
-                    <div id="informacionEquipo">
-                        <div id="texto" class="elementoInformacion">                                
-                            <p><strong>Cantidad de Jugadores:</strong> </p>                            
-                            <p><strong>Fecha de Fundación:</strong> </p>                                
-                            <p><strong>Director técnico:</strong></p>
-                            <p><strong>Logros:</strong> </p>
-                            
-                        </div>
-                        <div id="informac" class="elementoInformacion">                                
-                            <p> 14</p>                            
-                            <p > <time datetime="1925-05-01"> 1 de mayo de 1925</time></p>                                
-                            <p>Diego López</p>
-                            <p> Ganadores de 16 títulos</p>
-                        </div>
-                        <div id="logoEquipo" class="elementoInformacion">
-                            <figure> 
-                                <img src="assets/img/Equipos/barcelona.png" alt="Logo Barcelona">    
-                            <figcaption><small>Escudo de <abbr title="Barcelona Sporting Club">BSC</abbr></small></figcaption>
-                            </figure>                             
-                        </div>               
-                        
+            </header>
+        </div>   
+
+        <main>                        
+            <div id="contenedorContenido">
+                <div id="content" class="row">
+                    <div class="row">
+                        <div class="contenidoTitulo elemento col-md-12">
+                            <h2>Información de Equipos</h2>
+                            <hr>
+                        </div> 
                     </div>
-                    <section > 
-                        <h4 style="text-decoration: underline;">Jugadores</h4>
-                        <div id="jugadores">
-                            <div id="informacionJugadores">                                   
-                                                                    
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Altafuya.png" alt="Foto de Geremi Altafuya">
-                                    <p>Arquero</p>
-                                    <p >Geremi Altafuya</p>
-                                    <p >19 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Burrai.png" alt="Foto de Javier Burrai">
-                                    <p>Arquero</p>
-                                    <p>Javier Burrai</p>
-                                    <p>34 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Cornejo.png" alt="Foto de Justin Cornejo">
-                                    <p>Arquero</p>
-                                    <p>Justin Cornejo</p>
-                                    <p>21 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Mendoza.png" alt="Foto de Victor Mendoza">
-                                    <p>Arquero</p>
-                                    <p>Victor Mendoza</p>
-                                    <p>30 años</p>
-                                </div>
+                    <div class="row">
+                        <div class="contenidoIzquierdo elemento col-md-9">                                
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!--Barcelona-->
+                                    <div class=" Equipos row">
+                                        <h3 class="seleccionarEquipo">Barcelona Sporting Club </h3>
+                                        <div class="infoEquip col-md-12">
+                                            <div class="row">
+                                                <div class="elemento col-md-12">
+                                                    <h3  style="text-align: center;">Barcelona Sporting Club (<i><abbr title="Barcelona Sporting Club">BSC</abbr></i>)</h3>
+                                                </div>    
+                                            </div>
+                                            <div class="row">                           
+                                                <section class="informacionEquipo elemento col-md-12">
+                                                    <h4 style="text-decoration: underline;">Información General</h4>
+                                                    <div class="row">
+                                                        <div class="elemento col-md-9">
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Cantidad de Jugadores:</strong> </p> 
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> 11</p>   
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Fecha de Fundación:</strong> </p>  
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p > <time datetime="1925-05-01"> 1 de mayo de 1925</time></p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Director técnico:</strong></p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Diego López</p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Logros:</strong> </p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> Ganadores de 16 títulos</p> 
+                                                                </div>
+                                                            </div>
+                                                                
+                                                        </div>                                         
+                                                                
+                                                        <div class="logoEquipo elementoInformacion elemento col-md-1">
+                                                            <figure> 
+                                                                <img src="assets/img/Equipos/Barcelona/barcelona.png" alt="Logo Barcelona">    
+                                                                <figcaption><small>Escudo de <abbr title="Barcelona Sporting Club">BSC</abbr></small></figcaption>
+                                                            </figure>                             
+                                                        </div>  
+                                                    </div>                                                
+                                                </section>
+                                            </div>                                                    
+                                            <section class="row"> 
+                                                <div class="elemento col-md-12">
+                                                    <div class="row">
+                                                        <div class="elemento col-md-12">
+                                                            <h4 style="text-decoration: underline;">Jugadores</h4>
+                                                        </div>
+                                                        <div class="jugadores row">
+                                                            <div class="informacionJugadores elemento col-md-12">      
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Mendoza.png" alt="Foto de Victor Mendoza">
+                                                                    <p>Arquero</p>
+                                                                    <p>Victor Mendoza</p>
+                                                                    <p>30 años</p>
+                                                                </div>
+                                         
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Reasco.png" alt="Foto de Djorkaeff Reasco">
+                                                                    <p>Delantero</p>
+                                                                    <p>Djorkaeff Reasco</p>
+                                                                    <p>25 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Obando.png" alt="Foto de Allen Obando">
+                                                                    <p>Delantero</p>
+                                                                    <p>Allen Obando</p>
+                                                                    <p>18 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Calle.png" alt="Foto de Pablo Calle">
+                                                                    <p>Delantero</p>
+                                                                    <p>Pablo Calle</p>
+                                                                    <p>16 años</p>
+                                                                </div>
+                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Piñatares.png" alt="Foto de Bruno Piñatares">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Bruno Piñatares</p>
+                                                                    <p>34 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Trindade.png" alt="Foto de Jesús Trindade">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Jesús Trindade</p>
+                                                                    <p>31 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Souza.png" alt="Foto de Leonai Souza">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Leonai Souza</p>
+                                                                    <p>29 años</p>
+                                                                </div>
+                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Perlaza.png" alt="Foto de Pedro P.Perlaza">
+                                                                    <p>Defensa</p>
+                                                                    <p>Pedro P.Perlaza</p>
+                                                                    <p>33 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Rangel.png" alt="Foto de Alex Rangel">
+                                                                    <p>Defensa</p>
+                                                                    <p>Alex Rangel</p>
+                                                                    <p>22 años</p>
+                                                                </div>     
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Vargas.png" alt="Foto de William Vargas">
+                                                                    <p>Defensa</p>
+                                                                    <p>William Vargas</p>
+                                                                    <p>27 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Barcelona/Mina.png" alt="Foto de Duvan Mina">
+                                                                    <p>Defensa</p>
+                                                                    <p>Duvan Mina</p>
+                                                                    <p>19 años</p>
+                                                                </div>                                  
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>                                                                        
+                                            </section>    
+                                        </div> 
+                                    </div>
+                                    <!--Independiente del Valle-->
+                                    <div class="Equipos row">
+                                        <h3 class="seleccionarEquipo">Independiente del Valle</h3>  
+                                        <div class="infoEquip col-md-12">
+                                            <div class="row">
+                                                <div class="elemento col-md-12">
+                                                    <h3  style="text-align: center;">Independiente del Valle (<i><abbr title="Independiente del valle">IDV</abbr></i>)</h3>
+                                                </div>    
+                                            </div>
+                                            <div class="row">                           
+                                                <section class=" informacionEquipo elemento col-md-12">
+                                                    <h4 style="text-decoration: underline;">Información General</h4>
+                                                    <div class="row">
+                                                        <div class="elemento col-md-9">
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Cantidad de Jugadores:</strong> </p> 
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> 11</p>   
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Fecha de Fundación:</strong> </p>  
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p > <time datetime="1958-05-03"> 3 de mayo de 1958</time></p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Director técnico:</strong></p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Javier Gandolfi</p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Logros:</strong> </p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> Campeón dos veces de la Sudamericana, en 2019 y en 2022</p> 
+                                                                </div>
+                                                            </div>
+                                                                
+                                                        </div>    
+                                                        <div class=" logoEquipo elementoInformacion elemento col-md-1">
+                                                            <figure> 
+                                                                <img src="assets/img/Equipos/Independiente/independiente.png" alt="Logo Independiente del Valle">    
+                                                                <figcaption><small>Escudo de <abbr title="Independiente del Valle">IDV</abbr></small></figcaption>
+                                                            </figure>                             
+                                                        </div>  
+                                                    </div>                                                
+                                                </section>
+                                            </div>                                                    
+                                            <section class="row"> 
+                                                <div class="elemento col-md-12">
+                                                    <div class="row">
+                                                        <div class="elemento col-md-12">
+                                                            <h4 style="text-decoration: underline;">Jugadores</h4>
+                                                        </div>
+                                                        <div class="jugadores row">
+                                                            <div class="informacionJugadores elemento col-md-12">                                   
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Ramirez.png" alt="Foto de Moi Ramirez">
+                                                                    <p>Arquero</p>
+                                                                    <p >Moi Ramirez</p>
+                                                                    <p >23 años</p>
+                                                                </div>                                                                
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Lopez.png" alt="Foto de Renzo Lopez">
+                                                                    <p>Delantero</p>
+                                                                    <p>Renzo Lopez</p>
+                                                                    <p>30 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Bolaños.png" alt="Foto de Alexander Bolaños">
+                                                                    <p>Delantero</p>
+                                                                    <p>Alexander Bolaños</p>
+                                                                    <p>24 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Diaz.png" alt="Foto de Lautaro Diaz">
+                                                                    <p>Delantero</p>
+                                                                    <p>Lautaro Diaz</p>
+                                                                    <p>26 años</p>
+                                                                </div>
+                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Alcivar.png" alt="Jordy Alcivar">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Jordy Alcivar</p>
+                                                                    <p>24 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Mercado.png" alt="Foto de Patrick Mercado">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Patrick Mercado</p>
+                                                                    <p>20 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Sornoza.png" alt="Foto de Junior Sornoza">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Junior Sornoza</p>
+                                                                    <p>30 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Zarate.png" alt="Foto de Luis Zarate">
+                                                                    <p>Defensa</p>
+                                                                    <p>Luis Zarate</p>
+                                                                    <p>24 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Landazuri.png" alt="Foto de Anthony Landazuri">
+                                                                    <p>Defensa</p>
+                                                                    <p>Anthony Landazuri</p>
+                                                                    <p>27 años</p>
+                                                                </div>     
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Schunke.png" alt="Foto de Richard Schunke">
+                                                                    <p>Defensa</p>
+                                                                    <p>Richard Schunke</p>
+                                                                    <p>32 años</p>
+                                                                </div>   
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Independiente/Fernandez.png" alt="Foto de Matias Fernández">
+                                                                    <p>Defensa</p>
+                                                                    <p>Matias Fernández</p>
+                                                                    <p>28 años</p>
+                                                                </div>                              
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>                                                                        
+                                            </section>    
+                                        </div>                                               
+                                    </div> 
+                                    <!--Emelec-->
+                                    <div class="Equipos row">
+                                        <h3 class="seleccionarEquipo">Club Sport Emelec</h3>  
+                                        <div class="infoEquip col-md-12">
+                                            <div class="row">
+                                                <div class="elemento col-md-12">
+                                                    <h3  style="text-align: center;">Club SportEmelec (<i><abbr title="Club Sport Emelec">CSE</abbr></i>)</h3>
+                                                </div>    
+                                            </div>
+                                            <div class="row">                           
+                                                <section class="informacionEquipo elemento col-md-12">
+                                                    <h4 style="text-decoration: underline;">Información General</h4>
+                                                    <div class="row">
+                                                        <div class="elemento col-md-9">
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Cantidad de Jugadores:</strong> </p> 
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> 11</p>   
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Fecha de Fundación:</strong> </p>  
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p > <time datetime="1929-04-28"> 28 de abril de 1929</time></p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Director técnico:</strong></p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Hernán Torress</p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Logros:</strong> </p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> Primer campeón nacional en 1957</p> 
+                                                                </div>
+                                                            </div>
+                                                                
+                                                        </div>                                         
+                                                                
+                                                        <div class="logoEquipo elementoInformacion elemento col-md-1">
+                                                            <figure> 
+                                                                <img src="assets/img/Equipos/Emelec/emelec.png" alt="Logo Emelec">    
+                                                                <figcaption><small>Escudo de <abbr title="Emelec">CSE</abbr></small></figcaption>
+                                                            </figure>                             
+                                                        </div>  
+                                                    </div>                                                
+                                                </section>
+                                            </div>                                                    
+                                            <section class="row"> 
+                                                <div class="elemento col-md-12">
+                                                    <div class="row">
+                                                        <div class="elemento col-md-12">
+                                                            <h4 style="text-decoration: underline;">Jugadores</h4>
+                                                        </div>
+                                                        <div class="jugadores row">
+                                                            <div class="informacionJugadores elemento col-md-12">                                   
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Ortiz.jpeg" alt="Foto de Pedro Ortiz">
+                                                                    <p>Arquero</p>
+                                                                    <p >Pedro Ortiz</p>
+                                                                    <p >23 años</p>
+                                                                </div>                                                                
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Johnson.jpeg" alt="Foto de Ronaldo Johnson">
+                                                                    <p>Delantero</p>
+                                                                    <p>Ronaldo Johnson</p>
+                                                                    <p>29 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Corozo.jpeg" alt="Foto de Washington Corozo">
+                                                                    <p>Delantero</p>
+                                                                    <p>Washington Corozo</p>
+                                                                    <p>25 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Castelli.jpg" alt="Foto de Facundo Castelli">
+                                                                    <p>Delantero</p>
+                                                                    <p>Facundo Castelli</p>
+                                                                    <p>29 años</p>
+                                                                </div>
+                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Valverde.jpeg" alt="Jeremy Valverde">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Jeremy Valverde</p>
+                                                                    <p>20 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Muñoz.jpeg" alt="Foto de Elkin Muñoz">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Elkin Muñoz</p>
+                                                                    <p>18 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Noboa.jpg" alt="Foto de Cristian Noboa">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Cristian Noboa</p>
+                                                                    <p>39 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Leguizamón.jpeg" alt="Foto de Aníbal Leguizamón">
+                                                                    <p>Defensa</p>
+                                                                    <p>Aníbal Leguizamón</p>
+                                                                    <p>32 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Caicedo.jpeg" alt="Romario Caicedo">
+                                                                    <p>Defensa</p>
+                                                                    <p>Romario Caicedo</p>
+                                                                    <p>34 años</p>
+                                                                </div>     
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Cortez.png" alt="Foto de Gustavo Cortez">
+                                                                    <p>Defensa</p>
+                                                                    <p>Gustavo Cortez</p>
+                                                                    <p>26 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Emelec/Erbes.jpeg" alt="Foto de Cristian Erbes">
+                                                                    <p>Defensa</p>
+                                                                    <p>Cristian Erbes</p>
+                                                                    <p>34 años</p>
+                                                                </div>                                
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>                                                                        
+                                            </section>    
+                                        </div>                                               
+                                    </div>
+                                    <!--Aucas-->
+                                    <div class="Equipos row">
+                                        <h3 class="seleccionarEquipo">Sociedad Deportiva Aucas</h3>  
+                                        <div class="infoEquip col-md-12">
+                                            <div class="row">
+                                                <div class="elemento col-md-12">
+                                                    <h3  style="text-align: center;">Sociedad Deportiva Aucas</h3>
+                                                </div>    
+                                            </div>
+                                            <div class="row">                           
+                                                <section class="informacionEquipo elemento col-md-12">
+                                                    <h4 style="text-decoration: underline;">Información General</h4>
+                                                    <div class="row">
+                                                        <div class="elemento col-md-9">
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Cantidad de Jugadores:</strong> </p> 
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> 11</p>   
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Fecha de Fundación:</strong> </p>  
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p > <time datetime="1945-02-06"> 6 de febrero de 1945</time></p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Director técnico:</strong></p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Danny Walker</p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Logros:</strong> </p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Campeón de Serie A de Ecuador 2022</p> 
+                                                                </div>
+                                                            </div>
+                                                                
+                                                        </div>                                         
+                                                                
+                                                        <div class="logoEquipo elementoInformacion elemento col-md-1">
+                                                            <figure> 
+                                                                <img src="assets/img/Equipos/Aucas/aucas.png" alt="Logo Aucas">    
+                                                                <figcaption><small>Escudo de Aucas</small></figcaption>
+                                                            </figure>                             
+                                                        </div>  
+                                                    </div>                                                
+                                                </section>
+                                            </div>                                                    
+                                            <section class="row"> 
+                                                <div class="elemento col-md-12">
+                                                    <div class="row">
+                                                        <div class="elemento col-md-12">
+                                                            <h4 style="text-decoration: underline;">Jugadores</h4>
+                                                        </div>
+                                                        <div class="jugadores row">
+                                                            <div class="informacionJugadores elemento col-md-12">                                   
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Lanzillota.jpg" alt="Foto de Federico Lanzillotta">
+                                                                    <p>Arquero</p>
+                                                                    <p >Federico Lanzillotta</p>
+                                                                    <p >31 años</p>
+                                                                </div>                                                                
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Medina.jpg" alt="Foto de Jeison Medina">
+                                                                    <p>Delantero</p>
+                                                                    <p>Jeison Medina</p>
+                                                                    <p>29 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Blanco.jpg" alt="Foto de Jean Blanco">
+                                                                    <p>Delantero</p>
+                                                                    <p>Jean Blanco</p>
+                                                                    <p>32 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Zambrano.jpg" alt="Foto de Cristhoper Zambrano">
+                                                                    <p>Delantero</p>
+                                                                    <p>Cristhoper Zambrano</p>
+                                                                    <p>19 años</p>
+                                                                </div>
+                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Briones.jpg" alt="Ronald Briones">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Ronald Briones</p>
+                                                                    <p>23 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Mina.jpg" alt="Foto de Jonnathan Mina">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Jonnathan Mina/p>
+                                                                    <p>29 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Tobar.jpg" alt="Foto de Alejandro Tobar">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Alejandro Tobar</p>
+                                                                    <p>23 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Rolón.jpg" alt="Foto de Carlos Rolón">
+                                                                    <p>Defensa</p>
+                                                                    <p>Carlos Rolón</p>
+                                                                    <p>31 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Cangá.jpg" alt="Luis Cangá">
+                                                                    <p>Defensa</p>
+                                                                    <p>Luis Cangá</p>
+                                                                    <p>28 años</p>
+                                                                </div>     
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Garcia.jpg" alt="Foto de Ángel Garcia">
+                                                                    <p>Defensa</p>
+                                                                    <p>Ángel Garcia</p>
+                                                                    <p>35 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Aucas/Pizarro.jpg" alt="Foto de Patricio Pizarro">
+                                                                    <p>Defensa</p>
+                                                                    <p>Patricio Pizarro</p>
+                                                                    <p>23 años</p>
+                                                                </div>                                
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>                                                                        
+                                            </section>    
+                                        </div>                                               
+                                    </div> 
+                                    <!--Liga de Quito-->                                   
+                                    <div class="Equipos row">
+                                        <h3 class="seleccionarEquipo"> Liga de Quito</h3>  
+                                        <div class="infoEquip col-md-12">
+                                            <div class="row">
+                                                <div class="elemento col-md-12">
+                                                    <h3  style="text-align: center;">Liga de Quito (<i><abbr title="Liga de Quito">LDU</abbr></i>)</h3>
+                                                </div>    
+                                            </div>
+                                            <div class="row">                           
+                                                <section class="informacionEquipo elemento col-md-12">
+                                                    <h4 style="text-decoration: underline;">Información General</h4>
+                                                    <div class="row">
+                                                        <div class="elemento col-md-9">
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Cantidad de Jugadores:</strong> </p> 
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> 11</p>   
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Fecha de Fundación:</strong> </p>  
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p > <time datetime="1918-10-23"> 23 de octubre de 1918</time></p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Director técnico:</strong></p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Patricio Hurtado</p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Logros:</strong> </p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Campeón de la Copa Libertadores en 2008</p> 
+                                                                </div>
+                                                            </div>
+                                                                
+                                                        </div>                                         
+                                                                
+                                                        <div class="logoEquipo elementoInformacion elemento col-md-1">
+                                                            <figure> 
+                                                                <img src="assets/img/Equipos/Liga/liga.png" alt="Logo Liga de Quito">    
+                                                                <figcaption><small>Escudo de <abbr title="Liga de Quito">LDU</abbr></small></figcaption>
+                                                            </figure>                             
+                                                        </div>  
+                                                    </div>                                                
+                                                </section>
+                                            </div>                                                    
+                                            <section class="row"> 
+                                                <div class="elemento col-md-12">
+                                                    <div class="row">
+                                                        <div class="elemento col-md-12">
+                                                            <h4 style="text-decoration: underline;">Jugadores</h4>
+                                                        </div>
+                                                        <div class="jugadores row">
+                                                            <div class="informacionJugadores elemento col-md-12">                                   
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Dominguez.png" alt="Foto de Alexander Dominguez">
+                                                                    <p>Arquero</p>
+                                                                    <p >Alexander Dominguez</p>
+                                                                    <p >37 años</p>
+                                                                </div>                                                                
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Arce.jpg" alt="Foto de Alex Arce">
+                                                                    <p>Delantero</p>
+                                                                    <p>Alex Arce </p>
+                                                                    <p>28 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Hurtado.jpg" alt="Foto de Jan Hurtado">
+                                                                    <p>Delantero</p>
+                                                                    <p>Jan Hurtado</p>
+                                                                    <p>24 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Estrada.jpg" alt="Foto de Michael Estrada">
+                                                                    <p>Delantero</p>
+                                                                    <p>Michael Estrada</p>
+                                                                    <p>28 años</p>
+                                                                </div>                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Gonzales.jpg" alt="Foto de Sebastián Gonzales">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Sebastián Gonzales</p>
+                                                                    <p>21 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Villamil.jpg" alt="Foto de Gabriel Villamil">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Gabriel Villamil</p>
+                                                                    <p>22 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Palacios.jpg" alt="Foto de Pablo Palacios">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Pablo Palacios</p>
+                                                                    <p>42 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Quintero.jpg" alt="Foto de José Quintero">
+                                                                    <p>Defensa</p>
+                                                                    <p>José Quintero</p>
+                                                                    <p>33 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Quiñonez.jpg" alt="Leonel Quiñonez">
+                                                                    <p>Defensa</p>
+                                                                    <p>Leonel Quiñonez</p>
+                                                                    <p>30 años</p>
+                                                                </div>     
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Mina.png" alt="Foto de Richard Mina">
+                                                                    <p>Defensa</p>
+                                                                    <p>Richard Mina</p>
+                                                                    <p>24 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Liga/Rodriguez.jpg" alt="Foto de Facundo Rodríguez">
+                                                                    <p>Defensa</p>
+                                                                    <p>Facundo Rodríguez</p>
+                                                                    <p>24 años</p>
+                                                                </div>                                
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>                                                                        
+                                            </section>    
+                                        </div>                                               
+                                    </div>
+                                    <!--Nacional-->
+                                    <div class="Equipos row">
+                                        <h3 class="seleccionarEquipo">Club Deportivo el Nacional</h3>  
+                                        <div class="infoEquip col-md-12">
+                                            <div class="row">
+                                                <div class="elemento col-md-12">
+                                                    <h3  style="text-align: center;">Club Deportivo el Nacional(<i><abbr title="Club Deportivo el Nacional">CD el Nacional</abbr></i>)</h3>
+                                                </div>    
+                                            </div>
+                                            <div class="row">                           
+                                                <section class="informacionEquipo elemento col-md-12">
+                                                    <h4 style="text-decoration: underline;">Información General</h4>
+                                                    <div class="row">
+                                                        <div class="elemento col-md-9">
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Cantidad de Jugadores:</strong> </p> 
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p> 11</p>   
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Fecha de Fundación:</strong> </p>  
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p > <time datetime="1918-10-23"> 1 de junio de 1964</time></p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Director técnico:</strong></p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Marco Vinicio Pazos</p> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="elemento col-md-5">
+                                                                    <p><strong>Logros:</strong> </p>
+                                                                </div>
+                                                                <div class="elemento col-md-7">
+                                                                    <p>Ganadores de dos Copa Libertadores</p> 
+                                                                </div>
+                                                            </div>
+                                                                
+                                                        </div>                                         
+                                                                
+                                                        <div class="logoEquipo elementoInformacion elemento col-md-1">
+                                                            <figure> 
+                                                                <img src="assets/img/Equipos/Nacional/nacional.png" alt="Club Deportivo el Nacional">    
+                                                                <figcaption><small>Escudo de <abbr title="Club Deportivo el Nacional">CD el Nacional</abbr></small></figcaption>
+                                                            </figure>                             
+                                                        </div>  
+                                                    </div>                                                
+                                                </section>
+                                            </div>                                                    
+                                            <section class="row"> 
+                                                <div class="elemento col-md-12">
+                                                    <div class="row">
+                                                        <div class="elemento col-md-12">
+                                                            <h4 style="text-decoration: underline;">Jugadores</h4>
+                                                        </div>
+                                                        <div class="jugadores row">
+                                                            <div class="informacionJugadores elemento col-md-12">                                   
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Chalá.jpg" alt="Foto de Aníbal Chalá">
+                                                                    <p>Arquero</p>
+                                                                    <p >Aníbal Chalá</p>
+                                                                    <p >28 años</p>
+                                                                </div>                                                                
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Palacios.jpg" alt="Foto de Byon Palacios">
+                                                                    <p>Delantero</p>
+                                                                    <p>Byon Palacios</p>
+                                                                    <p>29 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Cheré.jpg" alt="Foto de Antony Cheré">
+                                                                    <p>Delantero</p>
+                                                                    <p>Antony Cheré</p>
+                                                                    <p>27 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Linthon.jpg" alt="Foto de Steve Linthon">
+                                                                    <p>Delantero</p>
+                                                                    <p>Steve Linthon</p>
+                                                                    <p>23 años</p>
+                                                                </div>                                        
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Olmedo.jpg" alt="Foto de Marcos Olmedo">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Marcos Olmedo</p>
+                                                                    <p>25 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Tana.jpg" alt="Foto de Bryan Tana">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Bryan Tana</p>
+                                                                    <p>26 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Tana.jpg" alt="Foto de Jonathan Borja">
+                                                                    <p>Mediocampista</p>
+                                                                    <p>Jonathan Borja</p>
+                                                                    <p>30 años</p>
+                                                                </div>
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Mazamba.jpg" alt="Foto de Sander Mazamba">
+                                                                    <p>Defensa</p>
+                                                                    <p>Sander Mazamba</p>
+                                                                    <p>23 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Flor.jpg" alt="José Flor">
+                                                                    <p>Defensa</p>
+                                                                    <p>José Flor</p>
+                                                                    <p>25 años</p>
+                                                                </div>     
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Castillo.jpg" alt="Foto de Jeremy Castillo">
+                                                                    <p>Defensa</p>
+                                                                    <p>Jeremy Castillo</p>
+                                                                    <p>21 años</p>
+                                                                </div> 
+                                                                <div class="jugador">
+                                                                    <img src="assets/img/Equipos/Nacional/Rommel.jpg" alt="Foto de Rommel Cabezas">
+                                                                    <p>Defensa</p>
+                                                                    <p>Rommel Cabezas</p>
+                                                                    <p>24 años</p>
+                                                                </div>                                
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>                                                                        
+                                            </section>    
+                                        </div>                                               
+                                    </div>
+                                </div>                                        
+                            </div>
+                        </div>
+                        <div class="contenidoRelacionado elemento col-md-2">
+                            <Aside >
+                                <h5>Artículos relacionados</h5>
+                                <ul>
+                                    <li><a href="https://especiales.eluniverso.com/historia-campeonato-ecuatoriano/cronologia/barcelona-logra-ser-el-primer-club-con-cuatro-coronas/" target="_blank">Primer club con 4 coronas</a></li>
+                                    <li><a href="https://www.elcomercio.com/deportes/futbol/barcelonasc-eliminado-copa-libertadores.html" target="_blank">Barcelona eliminado de la Copa Libertadores</a></li>
+                                </ul>    
+                            </Aside>                    
+                        </div>    
+                    </div>    
+                </div>
+            </div>   
+        </main>
 
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Reasco.png" alt="Foto de Djorkaeff Reasco">
-                                    <p>Delantero</p>
-                                    <p>Djorkaeff Reasco</p>
-                                    <p>25 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Obando.png" alt="Foto de Allen Obando">
-                                    <p>Delantero</p>
-                                    <p>Allen Obando</p>
-                                    <p>18 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Calle.png" alt="Foto de Pablo Calle">
-                                    <p>Delantero</p>
-                                    <p>Pablo Calle</p>
-                                    <p>16 años</p>
-                                </div>
+        <footer>
+            <div class="FooterContenedor"> 
+                <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
+            </div> 
+        </footer>
+    </div>
+    <script type="text/javascript">
+        const nombres = document.querySelectorAll(".seleccionarEquipo");        
+        // Inicialmente ocultar todos los contenidos de los acordeones
+        for (let i = 0; i < nombres.length; i++) {
+            let div = nombres[i].parentNode.children[1];
+            div.style.display = "none";
+        }
+        //Mostrar contenido
+        for (let i=0; i<nombres.length; i++){
+            nombres[i].addEventListener("click", function(e){
+                console.log(this);
 
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Piñatares.png" alt="Foto de Bruno Piñatares">
-                                    <p>Mediocampista</p>
-                                    <p>Bruno Piñatares</p>
-                                    <p>34 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Trindade.png" alt="Foto de Jesús Trindade">
-                                    <p>Mediocampista</p>
-                                    <p>Jesús Trindade</p>
-                                    <p>31 años</p>
-                                </div>
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Souza.png" alt="Foto de Leonai Souza">
-                                    <p>Mediocampista</p>
-                                    <p>Leonai Souza</p>
-                                    <p>29 años</p>
-                                </div>
+                console.log(this.parentNode);
+                console.log(this.parentNode.children[1]);
 
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Perlaza.png" alt="Foto de Pedro P.Perlaza">
-                                    <p>Defensa</p>
-                                    <p>Pedro P.Perlaza</p>
-                                    <p>33 años</p>
-                                </div> 
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Rangel.png" alt="Foto de Alex Rangel">
-                                    <p>Defensa</p>
-                                    <p>Alex Rangel</p>
-                                    <p>22 años</p>
-                                </div>     
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Vargas.png" alt="Foto de William Vargas">
-                                    <p>Defensa</p>
-                                    <p>William Vargas</p>
-                                    <p>27 años</p>
-                                </div> 
-                                <div class="jugador">
-                                    <img src="assets/img/Equipos/Mina.png" alt="Foto de Duvan Mina">
-                                    <p>Defensa</p>
-                                    <p>Duvan Mina</p>
-                                    <p>19 años</p>
-                                </div>                                
-                                
-                            </div> 
-                        </div>                            
-                    </section>                     
-                            
-                </div>              
-            </div>
-        </div>         
-                   
-    </main>
-
-
-    <footer>
-        <div class="FooterContenedor"> 
-            <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
-        </div> 
-    </footer>
+                let div = this.parentNode.children[1];
+                
+                if(div.style.display!=="none"){
+                    div.style.display="none";
+                }else{
+                    div.style.display="block";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 

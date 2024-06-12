@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <meta name="author" content="Kenny Moreira">
+    <title>Eventos Deportivos</title>
+    <style>
+        /* Hoja de estilo interna */
+
+        * {
+            box-sizing: border-box; /* Selector Universal */
+        }
+
+        header + main {
+            margin-top: 10px; /* Selector de hermano adyacente */
+        }
+
+        main > section {
+            padding: 20px; /* Selector de hijos */
+        }
+
+        section h2{
+            color: black; /* Selector de descendientes */
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid black;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(37, 150, 190);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(37, 150, 190);
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        ul li:first-child {
+            margin-left: 0;
+        }
+
+
+         /* Media Queries para diseño responsive movil */
+         @media (min-width: 600px) {
+            main {
+                grid-template-columns: 1fr 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                text-align: center;
+            }
+
+            #logoContenedor {
+                float: left;
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+        }
+
+        #fecha, #comentario{
+            font-family: Arial;
+        }
+
+        input[type="radio"] {
+        margin-right: 5px;
+        margin-left:10px;
+        }
+
+        div.radio-container {
+            display: inline-flex; 
+            align-items: right;
+            margin-bottom: 20px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+            margin-left:5px;
+            margin-bottom: -5px;
+        }
+
+        div.check-container {
+            display: inline-flex; 
+            align-items: right;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <aside id="logoContenedor">
+                <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
+            </aside>
+            <h1>Eventos Deportivos</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="equipos.html">Equipos</a></li>
+                    <li><a href="resultados.html">Resultados</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="sugerencia.html" id="active">Sugerencias</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sugerencia de Evento</h2>
+            <div class="form-container">
+                <form id="Formulario">
+                    <label>Tipo de Evento:</label>
+                    <select id="tipoEvento" name="tipoEvento" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="Torneo">Torneo</option>
+                        <option value="Amistoso">Amistoso</option>
+                        <option value="Entrenamiento">Entrenamiento</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <input type="text" id="otroEvento" name="otroEvento" placeholder="Especificar otro tipo de evento" style="display: none;">
+                    <div id="tipoEventoError" class="error"></div>
+
+                    <label>Rango de Edad:</label>
+                    <div class="radio-container">
+                        <input type="radio" id="edadNinos" name="rangoEdad">
+                        <label>Niños</label>
+                        
+                        <input type="radio" id="edadAdultos" name="rangoEdad">
+                        <label>Adultos</label>
+                        
+                        <input type="radio" id="edadTodos" name="rangoEdad">
+                        <label>Todas las edades</label>
+                    </div>
+                    <div id="rangoEdadError" class="error"></div>
+
+                    
+                    <label>¿Se permiten mascotas?</label>
+                    <div class="check-container">
+                        <label for="mascotasSi">Sí</label> <input type="checkbox" id="mascotasSi" name="mascotas">
+                        <label for="mascotasNo">No</label> <input type="checkbox" id="mascotasNo" name="mascotas">
+                        
+                    </div>
+                    <div id="permiteMascotasError" class="error"></div>
+
+                    <label>Descripción:</label> 
+                    <textarea id="descripcion" name="descripcion" required></textarea>
+                    <div id="descripcionError" class="error"></div>
+
+                    <label>Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                    <div id="fechaError" class="error"></div>
+
+                    <label>Correo Electrónico:</label>
+                    <input type="text" id="correo" name="correo" required>
+                    <div id="correoError" class="error"></div>
+
+                    <label>Lugar del Evento:</label>
+                    <input type="text" id="lugar" name="lugar" required>
+                    <div class="error" id="lugarError"></div>
+
+                    <label>Duración del Evento:</label>
+                    <input type="text" id="duracion" name="duracion" required>
+                    <div class="error" id="duracionError"></div>
+
+                    <label>Organizador del Evento:</label>
+                    <input type="text" id="organizador" name="organizador" required>
+                    <div class="error" id="organizadorError"></div>
+
+                    <label>Comentarios Adicionales:</label>
+                    <textarea id="comentario" name="comentario"></textarea>
+                    <div id="comentarioError" class="error"></div>
+
+                    <input type="submit" value="Enviar Sugerencia">
+                </form>
+            </div>
+            <p><strong>KENNY BRYAN MOREIRA SANTOS</strong></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="FooterContenedor">
+            <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("tipoEvento").addEventListener("change", function() {
+            var otroEvento = document.getElementById("otroEvento");
+            if (this.value === "Otro") {
+                otroEvento.style.display = "block";
+                otroEvento.required = true;
+            } else {
+                otroEvento.style.display = "none";
+                otroEvento.required = false;
+            }
+        });
+    
+        document.getElementById("Formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+
+            var tipoEvento = document.getElementById("tipoEvento").value;
+            var otroEvento = document.getElementById("otroEvento").value;
+            var rangoEdad = document.querySelector('input[name="rangoEdad"]:checked');
+            var permiteMascotasSi = document.getElementById("mascotasSi").checked;
+            var permiteMascotasNo = document.getElementById("mascotasNo").checked;
+            var descripcion = document.getElementById("descripcion").value;
+            var fecha = document.getElementById("fecha").value;
+            var correo = document.getElementById("correo").value;
+            var lugar = document.getElementById("lugar").value;
+            var duracion = document.getElementById("duracion").value;
+            var organizador = document.getElementById("organizador").value;
+            var comentario = document.getElementById("comentario").value;
+
+
+
+            var validacion = true;
+            if (tipoEvento === "") {
+                document.getElementById("tipoEventoError").innerText = "Por favor, seleccione un tipo de evento.";
+                validacion = false;
+            } else if (tipoEvento === "Otro" && (otroEvento === "" || otroEvento.length < 3)) {
+                document.getElementById("tipoEventoError").innerText = "Por favor, especifique un tipo de evento válido.";
+                validacion = false;
+            }
+
+            if (!rangoEdad) {
+                document.getElementById("rangoEdadError").innerText = "Por favor, seleccione un rango de edad.";
+                validacion = false;
+            }
+
+            if (descripcion === "" || descripcion.length < 10) {
+                document.getElementById("descripcionError").innerText = "La descripción debe tener al menos 10 caracteres.";
+                validacion = false;
+            }
+    
+            if (fecha === "") {
+                document.getElementById("fechaError").innerText = "Por favor, seleccione una fecha.";
+                validacion = false;
+            }
+
+            var correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (correo === "" || !correoValido.test(correo)) {
+                document.getElementById("correoError").innerText = "Por favor, ingrese un correo electrónico válido.";
+                validacion = false;
+            }
+    
+            if (lugar === "" || lugar.length < 5) {
+                document.getElementById("lugarError").innerText = "El lugar del evento debe tener al menos 5 caracteres.";
+                validacion = false;
+            }
+
+            if (duracion === "" || duracion.length < 5) {
+                document.getElementById("duracionError").innerText = "La duración del evento debe tener al menos 5 caracteres.";
+                validacion = false;
+            }
+
+            if (organizador === "" || organizador.length < 4) {
+                document.getElementById("organizadorError").innerText = "El organizador del evento debe tener al menos 4 caracteres.";
+                validacion = false;
+            }
+
+            if (!(permiteMascotasSi || permiteMascotasNo)) {
+            document.getElementById("permiteMascotasError").innerText = "Por favor, seleccione si se permiten mascotas.";
+            validacion = false;
+            } else if ((permiteMascotasSi && permiteMascotasNo) || (!permiteMascotasSi && !permiteMascotasNo)) {
+                document.getElementById("permiteMascotasError").innerText = "Por favor, seleccione solo una opción (Sí o No).";
+                validacion = false;
+            }
+
+            if (comentario.length > 0 && comentario.length < 5) {
+                document.getElementById("comentarioError").innerText = "Los comentarios adicionales deben tener al menos 5 caracteres.";
+                validacion = false;
+            }
+
+            if (validacion) {
+                alert("Sugerencia enviada exitosamente!");
+                //location.reload();
+            }
+        });
+    </script>
+    
+</body>
+</html>

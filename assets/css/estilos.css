@@ -92,3 +92,18 @@ th, td {
 
 
 /*---------*/
+/*Equipos*/
+.elemento{
+    /*border: 1px solid green; ver las filas y columnas*/
+    border-radius:10px;
+    min-width: 105px;
+    margin-top:5px;
+
+}
+.contenidoTitulo{
+    padding-left: 10px;
+    padding-top: 10px;
+    height: fit-content;
+    margin-left: 5px;
+    margin-top: 5px;            
+}

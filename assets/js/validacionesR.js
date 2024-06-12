@@ -239,4 +239,17 @@ function limpiarMensajes() {
     }
 
 }
+document.getElementById("cantidad").addEventListener("keypress", soloNumeros);
+document.getElementById("edad").addEventListener("keypress", soloNumeros);
+    
+function soloNumeros(e){
+    let key= e.keyCode;
+    if(key <48 || key >57){
+        e.preventDefault();//detengo el evento keypress
+    }
+    if(e.target.value.length >=2){
+        e.preventDefault();//Detengo para que no puedan ingresarse mas de 5
+    }
+}
+
 

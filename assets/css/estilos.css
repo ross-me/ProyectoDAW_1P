@@ -107,3 +107,12 @@ th, td {
     margin-left: 5px;
     margin-top: 5px;            
 }
+#contenedorPrincipalE{
+    width: 90%;
+    margin:auto;
+}
+
+#contenedorContenidoE{
+    width: 90%;
+    margin: 0 auto;
+}

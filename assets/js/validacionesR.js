@@ -62,7 +62,7 @@ function validar(event){
     }else if (isNaN(cantidadJ)){
         resultado = false;
         mensaje("Cantidad debe ser un numero",txtCantidad);
-    }else if(cantidadJ<11 || cantidadJ>=20){
+    }else if(cantidadJ<3 || cantidadJ>=20){
         resultado=false;
         mensaje("Cantidad debe ser entre 11 y 20",txtCantidad);
     }
@@ -100,6 +100,7 @@ function validar(event){
         alert("Faltan jugadores por agregar");
         resultado= false;
     }
+
 
     if (!resultado) {
         event.preventDefault();
@@ -180,6 +181,13 @@ enlaceJ.addEventListener("click", function(e){
         mensaje("Debe seleccionar al menos una opcion", checkboxHabilidades[0]);
     }
 
+    // Verificar cantidad de jugadores
+    let cantidadJugadores = parseInt(document.getElementById("cantidad").value);
+    if (contadorJugadores >= cantidadJugadores) {
+        alert("Ya has ingresado la cantidad máxima de jugadores.");
+        resultado = false;
+    }
+
     if (!resultado) {
         e.preventDefault();
     }else{
@@ -217,6 +225,7 @@ enlaceJ.addEventListener("click", function(e){
         checkboxHabilidades.forEach(checkbox => {
             checkbox.checked = false;
         });
+        
         
 
         contadorJugadores++;

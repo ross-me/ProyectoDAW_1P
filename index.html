@@ -121,6 +121,30 @@
             text-decoration:overline;
         }
         
+        .equipo-button {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #1c318f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contenedorNoticias-item:hover{
+            transform: translateY(-10px);
+           
+        }
+
+        h2, h3{
+            border-bottom: 2px solid grey;
+            
+        }
+
+
 
     </style>
 </head>
@@ -148,7 +172,7 @@
 
     <main>
         <div class = "container">
-            <h2 style="font-size: 16pt;">Sección 1: Equipos Favoritos</h2>
+            <h2 style="font-size: 16 pt;">Sección 1: Equipos Favoritos</h2>
 
             <figure>
                 <img src="assets/img/Inicio/BanerPrincipal.jpg" alt="Descripción de la imagen" class="BanerEquipos">
@@ -165,8 +189,10 @@
                             El partido fue de locos, partido ida y vuelta, el primer tiempo el Bi-Tri impuso condiciones en ataque, ya que a los 12 minutos el VAR revisó la jugada y determinó penal a favor del local.
                             La estrella goleadora del equipo fue el joven Kendry Paez realizando varias anotaciones. <br>
                             El equipo ha demostrado un rendimiento excepcional en la temporada actual, alcanzando logros significativos y destacándose en varias competencias.</em>
-                    </p>
+                            <button class="equipo-button" id="equiposButton">Equipos</button>
+                        </p>
                 </div>
+             
             </section>
 
             <div>
@@ -193,7 +219,7 @@
           
     
                 <section class="contenedorNoticias">
-                    <h3 class="section-title">Equipo Ganador</h3>
+                    <h3 class="section-title">Tabla de Posiciones</h3>
                     <table>
                         <thead>
                             <tr>
@@ -320,5 +346,12 @@
             <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
         </div> 
     </footer>
+
+    <script>
+         document.getElementById('equiposButton').addEventListener('click', function() {
+            window.location.href = 'equipos.html';
+        });
+    </script>
+
 </body>
 </html>

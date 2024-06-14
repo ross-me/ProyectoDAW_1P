@@ -62,7 +62,7 @@ function validar(event){
     }else if (isNaN(cantidadJ)){
         resultado = false;
         mensaje("Cantidad debe ser un numero",txtCantidad);
-    }else if(cantidadJ<3 || cantidadJ>=20){
+    }else if(cantidadJ<2 || cantidadJ>=20){
         resultado=false;
         mensaje("Cantidad debe ser entre 11 y 20",txtCantidad);
     }
@@ -88,7 +88,11 @@ function validar(event){
 
     var fechaActualR = new Date();
     var anioR = fechaActualR.getFullYear();
-    if (fechaR > fechaActualR) {
+
+    if (!datoR) {
+        resultado = false;
+        mensaje("Debe ingresar una fecha", txtFecha);
+    }else if (fechaR > fechaActualR) {
         resultado = false;
         mensaje("Fecha no puede ser superior a la actual", txtFecha);
     }

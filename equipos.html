@@ -11,17 +11,8 @@
     <title>Eventos Deportivos</title>
 
     <style>
-        #contenedorPrincipal{
-            width: 90%;
-            margin:auto;
-        }
-        .elemento{
-            /*border: 1px solid green; ver las filas y columnas*/
-            border-radius:10px;
-            min-width: 105px;
-            margin-top:5px;
+        
 
-        }
         /*Color de fondo*/
         body{
             background-color: rgb(240, 245, 252);
@@ -42,10 +33,8 @@
             font-size: 18pt;
             margin-bottom: 0px;
         }
-        #contenedorContenido{
-            width: 90%;
-            margin: 0 auto;
-        }
+        
+        
         .contenidoIzquierdo {
             border-radius: 10px;
             padding: 10px;
@@ -65,13 +54,8 @@
             margin-bottom: 20px;
         
         }
-        .contenidoTitulo{
-            padding-left: 10px;
-            padding-top: 10px;
-            height: fit-content;
-            margin-left: 5px;
-            margin-top: 5px;            
-        }
+        
+
         .elementoInformacion img {
             width: 100px;
             height: 100px;
@@ -132,8 +116,10 @@
             margin-top: 5px;
         } 
         .seleccionarEquipo:hover{
-            color: rgb(33, 40, 136);
-            font-weight: bold;
+            /*color: rgb(33, 40, 136);
+            font-weight: bold;*/
+            color: #e3e2f5;
+            background-color: #132144;
             border: 2px solid rgb(33, 40, 136);
         }
         .seleccionarEquipo{
@@ -172,7 +158,7 @@
     </style>
 </head>
 <body>
-    <div class="contenedorPrincipal">
+    <div class="contenedorPrincipalE">
         <div class="row">
             <header> 
                 <div class ="container elemento col-md-12">
@@ -180,6 +166,7 @@
                         <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
                     </aside>        
                     <h1>Eventos Deportivos</h1>
+                    
                     <nav>
                         <ul>
                             <li><a href="index.html" >Inicio</a></li>
@@ -188,6 +175,12 @@
                             <li><a href="resultados.html">Resultados</a></li>
                             <li><a href="nosotros.html">Nosotros</a></li>
                             <li><a href="registrar.html">Registrar Equipos</a></li>
+                            <li><a href="sugerencia.html">Sugerencias</a></li>
+
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="registrar.html">Registrar Equipos</a></li>
+                            <li><a href="sugerencia.html">Sugerencias</a></li>
+
                         </ul>
                     </nav>       
                 </div>
@@ -195,7 +188,7 @@
         </div>   
 
         <main>                        
-            <div id="contenedorContenido">
+            <div id="contenedorContenidoE">
                 <div id="content" class="row">
                     <div class="row">
                         <div class="contenidoTitulo elemento col-md-12">

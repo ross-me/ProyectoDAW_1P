@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <meta name="author" content="Bianca Denisse Fajardo Zambrano">
+    <title>Eventos Deportivos</title>
+    <style>
+        #contenedorPrincipal{
+            margin:0 auto;
+            width: 80%;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        #contenedorContenido{
+            width: 80%;
+            margin:0 auto;
+            padding: 10px;
+            background-color: #A2BECD;
+            border-radius: 5px;
+        }
+
+        #encabezado{
+            text-align: center;
+        }
+
+        img{
+            width: 40px;
+            height: 30px;
+        }
+
+        h2{
+            display: inline-block;
+        }
+
+
+        .formulario label{
+            font-weight: bold;
+        }
+
+        .formulario  div{
+            padding:8px;
+        }
+
+        #formResultados > div{
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            background-color: whitesmoke;
+        }
+
+        .tipo{
+            font-weight: bold; 
+            text-align: center; 
+            font-size: 16pt;
+        }
+
+        .mensajeError{
+            color:rgb(255, 0, 0);
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <div class ="container">
+            <aside id="logoContenedor">
+                <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
+             </aside>
+
+            <h1>Eventos Deportivos</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="equipos.html">Equipos</a></li>
+                    <li><a href="resultados.html"Id="active">Resultados</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                </ul>
+            </nav>       
+        </div>
+    </header>
+    <main>
+        <div id="contenedorPrincipal">
+            <div id="encabezado">
+                <img src="assets/img/Resultados/balon.png" alt="balon">
+                <h2>Ingresar resultados deportivos</h2>
+                <img src="assets/img/Resultados/balon.png" alt="balon">
+            </div>
+            <div id="contenedorContenido">
+                <div class="formulario">
+                    <form id="formResultados" name="formResultados">
+                        <div>
+                            <label>Fecha del partido:</label>
+                            <input type="date" name="fecha" id="fecha" class="formItem">
+                        </div>
+                        <div>
+                            <div class="tipo">Local</div>
+                            <div>                           
+                                <label>Equipo:</label>
+                                <select name="equipos" id="equipolocal">
+                                    <option value="0">Seleccione...</option>
+                                    <option value="barcelona">Barcelona</option>
+                                    <option value="emelec">Emelec</option>
+                                    <option value="independiente">Independiente del Valle</option>
+                                    <option value="liga de quito">Liga de Quito</option>
+                                    <option value="aucas">Aucas</option>
+                                    <option value="el nacional">El Nacional</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Goles:</label>
+                                <input type="text" id="golocal" name="golocal">
+                            </div>
+                            <div>
+                                <label>Tarjetas amarillas:</label>
+                                <input type="text" id="talocal" name="talocal">
+                            </div>
+                            <div>
+                                <label>Jugadores con tarjetas amarillas:</label><br>
+                                <textarea class="form-control" id="jtalocal" rows="4" cols="50" class="formItem"></textarea>
+                            </div>
+                            <div>
+                                <label>Tarjetas rojas:</label>
+                                <input type="text" id="trlocal" name="trlocal">
+                            </div>
+                            <div>
+                                <label>Jugadores con tarjetas rojas:</label><br>
+                                <textarea class="form-control" id="jtrlocal" rows="4" cols="50" class="formItem"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tipo">Visitante</div>
+                            <div>                           
+                                <label>Equipo:</label>
+                                <select name="equipos" id="equipovisitante">
+                                    <option value="0">Seleccione...</option>
+                                    <option value="barcelona">Barcelona</option>
+                                    <option value="emelec">Emelec</option>
+                                    <option value="independiente">Independiente del Valle</option>
+                                    <option value="liga de quito">Liga de Quito</option>
+                                    <option value="aucas">Aucas</option>
+                                    <option value="el nacional">El Nacional</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Goles:</label>
+                                <input type="text" id="golvisitante" name="golvisitante">
+                            </div>
+                            <div>
+                                <label>Tarjetas amarillas:</label>
+                                <input type="text" id="tavisitante" name="tavisitante">
+                            </div>
+                            <div>
+                                <label>Jugadores con tarjetas amarillas:</label><br>
+                                <textarea class="form-control" id="jtavisitante" rows="4" cols="50" class="formItem"></textarea>
+                            </div>
+                            <div>
+                                <label>Tarjetas rojas:</label>
+                                <input type="text" id="trvisitante" name="trvisitante">
+                            </div>
+                            <div>
+                                <label>Jugadores con tarjetas rojas:</label><br>
+                                <textarea class="form-control" id="jtrvisitante" rows="4" cols="50" class="formItem"></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center" style="border: none; background:none; text-align: center;">
+                            <input type="submit" name="btnEnviar" class="btn btn-primary" value="Enviar">
+                            <input type="reset" class="btn btn-primary" value="Cancelar">
+                       </div>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="FooterContenedor"> 
+            <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
+        </div> 
+    </footer>
+    <script type="text/javascript">
+        var form =document.querySelector("#formResultados");
+        form.addEventListener('submit',validar);
+
+        function validar(event){
+            var resultado = true;
+
+            var txtfecha = document.getElementById("fecha");
+
+            //Local
+            var comboBoxLocal = document.getElementById("equipolocal");
+            var txtGolLocal = document.getElementById("golocal");
+            var txtTarjetaAmarillaLocal = document.getElementById("talocal");
+            var txtJugadoresTarjetaAmarillalocal = document.getElementById("jtalocal");
+            var txtTarjetaRojaLocal = document.getElementById("trlocal");
+            var txtJugadoresTarjetaRojaLocal = document.getElementById("jtrlocal");
+
+            //Visitante
+            var comboBoxVisitante = document.getElementById("equipovisitante");
+            var txtGolVisitante = document.getElementById("golvisitante");
+            var txtTarjetaAmarillaVisitante = document.getElementById("tavisitante");
+            var txtJugadoresTarjetaAmarillaVisitante = document.getElementById("jtavisitante");
+            var txtTarjetaRojaVisitante = document.getElementById("trvisitante");
+            var txtJugadoresTarjetaRojaVisitante = document.getElementById("jtrvisitante");
+
+            //RegEx
+            var letra = /^[a-z ,.'-]+$/i;
+
+            limpiarMensajes();
+            
+            // Validar fecha
+            var dato= txtfecha.value;
+            var fechaE= new Date(dato);
+            var anioE= fechaE.getFullYear();
+            var fechaActual=new Date();
+
+            if (txtfecha.value === "") {
+                resultado = false;
+                mensaje("La fecha del partido es requerida", txtfecha);
+            }else if(fechaE>fechaActual){
+                resultado=false;
+                mensaje("La fecha del partido no puede ser superior a la actual",txtfecha);
+            }else if(anioE<2020){
+                resultado=false;
+                mensaje("La fecha del partido no puede ser menor al año 2020",txtfecha);
+            }
+
+            // Validar equipo local y visitante
+            if (comboBoxLocal.value === "0" || comboBoxLocal.value=== null) {
+                resultado = false;
+                mensaje("Debe seleccionar un equipo local", comboBoxLocal);
+            } 
+
+            if (comboBoxVisitante.value === "0" || comboBoxVisitante.value=== null) {
+                resultado = false;
+                mensaje("Debe seleccionar un equipo visitante", comboBoxVisitante);
+            } 
+            
+            if(comboBoxLocal.value === comboBoxVisitante.value && comboBoxLocal.value !="0" && comboBoxVisitante.value!="0"){
+                resultado=false;
+                mensaje("Debe seleccionar un equipo distinto", comboBoxLocal);
+                mensaje("Debe seleccionar un equipo distinto", comboBoxVisitante);
+            }
+
+            // Validar goles local y visitante
+            if (txtGolLocal.value === "") {
+                resultado = false;
+                mensaje("Campo goles es requerido", txtGolLocal);
+            }else if(parseInt(txtGolLocal.value)>100){
+                resultado = false;
+                mensaje("Máximo 100 goles", txtGolLocal);
+            }
+
+            if (txtGolVisitante.value === "") {
+                resultado = false;
+                mensaje("Campo goles es requerido", txtGolVisitante);
+            }else if(parseInt(txtGolVisitante.value)>100){
+                resultado = false;
+                mensaje("Máximo 100 goles", txtGolVisitante);
+            }
+
+
+            //Validar tarjetas amarillas local y visitante
+            if (txtTarjetaAmarillaLocal.value === "") {
+                resultado = false;
+                mensaje("Campo tarjetas amarillas es requerido", txtTarjetaAmarillaLocal);
+            }else if(parseInt(txtTarjetaAmarillaLocal.value)>50){
+                resultado = false;
+                mensaje("Máximo 50 tarjetas amarillas", txtTarjetaAmarillaLocal);
+            }
+
+            if (txtTarjetaAmarillaVisitante.value === "") {
+                resultado = false;
+                mensaje("Campo tarjetas amarillas es requerido", txtTarjetaAmarillaVisitante);
+            }else if(parseInt(txtTarjetaAmarillaVisitante.value)>50){
+                resultado = false;
+                mensaje("Máximo 50 tarjetas amarillas", txtTarjetaAmarillaVisitante);
+            }
+
+
+            //Validar campos de jugadores con tarjetas amarillas local y visitante
+            if(txtTarjetaAmarillaLocal.value !== "" && txtTarjetaAmarillaLocal.value!="0" && txtJugadoresTarjetaAmarillalocal.value===""){
+                resultado=false;
+                mensaje("Llenar campo con los jugadores sancionados",txtJugadoresTarjetaAmarillalocal);
+            }else if(!letra.test(txtJugadoresTarjetaAmarillalocal.value) && txtTarjetaAmarillaLocal.value!=="" && txtTarjetaAmarillaLocal.value!="0"){
+                resultado=false;
+                mensaje("Campo de jugadores solo debe contener letras",txtJugadoresTarjetaAmarillalocal);
+            }
+
+            if(txtTarjetaAmarillaVisitante.value !== "" && txtTarjetaAmarillaVisitante.value!="0" && txtJugadoresTarjetaAmarillaVisitante.value===""){
+                resultado=false;
+                mensaje("Llenar campo con los jugadores sancionados",txtJugadoresTarjetaAmarillaVisitante);
+            }else if(!letra.test(txtJugadoresTarjetaAmarillaVisitante.value) && txtTarjetaAmarillaVisitante.value!=="" && txtTarjetaAmarillaVisitante.value!="0"){
+                resultado=false;
+                mensaje("Campo de jugadores solo debe contener letras",txtJugadoresTarjetaAmarillaVisitante);
+            }
+
+            //Validar tarjetas rojas local y visitante
+            if (txtTarjetaRojaLocal.value === "") {
+                resultado = false;
+                mensaje("Campo tarjetas rojas es requerido", txtTarjetaRojaLocal);
+            }else if(parseInt(txtTarjetaRojaLocal.value)>50){
+                resultado = false;
+                mensaje("Máximo 50 tarjetas amarillas", txtTarjetaRojaLocal);
+            }
+
+            if (txtTarjetaRojaVisitante.value === "") {
+                resultado = false;
+                mensaje("Campo tarjetas amarillas es requerido", txtTarjetaRojaVisitante);
+            }else if(parseInt(txtTarjetaRojaVisitante.value)>50){
+                resultado = false;
+                mensaje("Máximo 50 tarjetas amarillas", txtTarjetaRojaVisitante);
+            }
+            
+            //Validar campos de jugadores con tarjetas rojas local y visitante
+            if(txtTarjetaRojaLocal.value !== "" && txtTarjetaRojaLocal.value!="0" && txtJugadoresTarjetaRojaLocal.value===""){
+                resultado=false;
+                mensaje("Llenar campo con los jugadores sancionados",txtJugadoresTarjetaRojaLocal);
+            }else if(!letra.test(txtJugadoresTarjetaRojaLocal.value) && txtTarjetaRojaLocal.value!=="" && txtTarjetaRojaLocal.value!="0"){
+                resultado=false;
+                mensaje("Campo de jugadores solo debe contener letras",txtJugadoresTarjetaRojaLocal);
+            }
+
+            if(txtTarjetaRojaVisitante.value !== "" && txtTarjetaRojaVisitante.value!="0" && txtJugadoresTarjetaRojaVisitante.value===""){
+                resultado=false;
+                mensaje("Llenar campo con los jugadores sancionados",txtJugadoresTarjetaRojaVisitante);
+            }else if(!letra.test(txtJugadoresTarjetaRojaVisitante.value) && txtTarjetaRojaVisitante.value!=="" && txtTarjetaRojaVisitante.value!="0"){
+                resultado=false;
+                mensaje("Campo de jugadores solo debe contener letras",txtJugadoresTarjetaRojaVisitante);
+            }            
+
+
+
+            if (!resultado) {
+                event.preventDefault();
+            }
+        }
+
+        //Validación para solo ingresar numeros
+        form.golocal.addEventListener("keypress", Numeros);
+        form.golvisitante.addEventListener("keypress", Numeros);
+        form.talocal.addEventListener("keypress", Numeros);
+        form.tavisitante.addEventListener("keypress", Numeros);
+        form.trlocal.addEventListener("keypress", Numeros);
+        form.trvisitante.addEventListener("keypress", Numeros);
+        function Numeros(e){
+            let key=e.keyCode;
+            if(key<48||key>57){
+                e.preventDefault();
+            }
+            if(e.target.value.length>2){
+                e.preventDefault(); 
+            }
+        }
+
+        function mensaje(cadenaMensaje, elemento){
+            elemento.focus();
+            var nodoPadre = elemento.parentNode;
+            var nodoMensaje = document.createElement("span");
+            nodoMensaje.textContent = cadenaMensaje;
+            nodoMensaje.className = "mensajeError";
+            nodoPadre.appendChild(nodoMensaje);
+        }
+
+        function limpiarMensajes() {
+            var mensajes = document.querySelectorAll(".mensajeError"); 
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();
+            }
+        }
+    </script>
+</body>
+</html>

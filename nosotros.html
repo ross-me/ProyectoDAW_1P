@@ -94,10 +94,6 @@
         }
 
         /* Pseudoclases */
-        a:hover {
-            text-decoration: underline;
-            color:rgb(255, 0, 128);
-        }
 
         ul li:first-child {
             margin-left: 0;
@@ -178,6 +174,29 @@
 
     
         }
+
+        body {
+            color: #000000;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark-theme {
+            color: #ffffff;
+            background-color:rgb(29, 97, 137);
+        }
+
+        .dark-theme h2 {
+            color: white;
+        }
+
+        .dark-theme .contenido2, .contenido2 h2{
+            color:black;
+        }
+
+        .dark-theme .texto-contenido{
+            color:black;
+        }
+
        
     </style>
     
@@ -199,6 +218,8 @@
                     <li><a href="equipos.html">Equipos</a></li>
                     <li><a href="resultados.html">Resultados</a></li>
                     <li><a href="nosotros.html" Id="active">Nosotros</a></li>
+                    <li><a href="registrar.html">Registrar Equipos</a></li>
+                    <li><a href="sugerencia.html">Sugerencias</a></li>
                 </ul>
             </nav>       
         </div>
@@ -207,6 +228,7 @@
     <main>
         
         <section>
+            <button id="theme-toggle">Cambiar Tema</button>
             <h2>Sobre Nosotros</h2>
             <article>
                 <figure>
@@ -286,10 +308,31 @@
 
 
     <footer>
-        <div class="FooterContenedor"> 
+        <div class="FooterContenedor">
             <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
-        </div> 
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+            themeToggleBtn.addEventListener('click', function() {
+                const body = document.body;
+
+                body.classList.toggle('dark-theme');
+                
+                const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+            });
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
+    </script>
+    
 </body>
 </html>
 

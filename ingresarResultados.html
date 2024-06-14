@@ -17,7 +17,7 @@
             width: 80%;
             margin:0 auto;
             padding: 10px;
-            background-color: #bed9c8;
+            background-color: #A2BECD;
             border-radius: 5px;
         }
 
@@ -237,7 +237,7 @@
                 mensaje("Debe seleccionar un equipo visitante", comboBoxVisitante);
             } 
             
-            if(comboBoxLocal.value === comboBoxVisitante.value){
+            if(comboBoxLocal.value === comboBoxVisitante.value && comboBoxLocal.value !="0" && comboBoxVisitante.value!="0"){
                 resultado=false;
                 mensaje("Debe seleccionar un equipo distinto", comboBoxLocal);
                 mensaje("Debe seleccionar un equipo distinto", comboBoxVisitante);

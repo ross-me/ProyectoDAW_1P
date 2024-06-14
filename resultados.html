@@ -11,6 +11,7 @@
         #contenido{
             margin-left: 15%;
             margin-right: 10%;
+            margin-bottom: 10%;
         }
 
         #tema{
@@ -50,6 +51,10 @@
             grid-template-rows: 30% 30%;
             grid-template-columns: 5% 75% 10%;
             grid-gap: 15px 20px;
+        }
+
+        .elemento2:hover{
+            border: 2px solid black;
         }
 
         @media (max-width: 600px) {
@@ -103,7 +108,7 @@
 
         .seleccionado{
             display:block;
-            background-color: #609294;
+            background-color: #A2BECD;
             border: 1px solid black;
         }
 
@@ -111,14 +116,14 @@
             display: inline-block;
             padding:18px;
             text-decoration: none;
-            background-color: #609294;
+            background-color: #A2BECD;
             border: 1px solid black;
             color: black;
             font-weight: bold;
         }
 
         .tit:hover{
-            background-color: #213635;
+            background-color: rgb(6,16,51);
             text-decoration: none;
             font-weight: bold;
         }
@@ -134,7 +139,7 @@
 
         .seleccionada{
             color:white;
-            background: #213635;
+            background: rgb(6,16,51);
             font-weight: bold;
         }
 
@@ -165,336 +170,374 @@
 
     <main>
         <h2 id="tema">Resultados</h2>
-            <div id="contenido">
-                <div id="titulo">
-                    <a class="tit normal" id="uno" onclick="cambiarPestana(this)" href="#">Primera Fase</a>
-                    <a class="tit normal" id="dos" onclick="cambiarPestana(this)" href="#">Segunda Fase</a>
-                </div>
-                <div id="pestana1" class="pestana-content seleccionado">
-                    <section>
-                        <div class="resultados">
-                            <div class="elemento">
-                                <time datetime="2024-05-06">sábado, 6 de mayo del 2024</time>
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
-                                <p>Barcelona</p>
-                                <p><strong>5</strong></p>
-                                <img src="assets/img/Resultados/emelec.png" alt="Emelec">
-                                <p>Emelec </p>
-                                <p><strong>0</strong></p> 
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
-                                <p>El Nacional</p>
-                                <p><strong>1</strong></p>
-                                <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
-                                <p>Independiente del Valle</p>
-                                <p><strong>2</strong></p>  
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/aucas.png" alt="Aucas">
-                                <p>Aucas</p>
-                                <p><strong>3</strong></p>
-                                <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
-                                <p>Liga de Quito</p>
-                                <p><strong>0</strong></p>  
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
-                                <p>Independiente del Valle</p>
-                                <p><strong>1</strong></p>
-                                <img src="assets/img/Resultados//emelec.png" alt="Emelec">
-                                <p>Emelec</p>
-                                <p><strong>1</strong></p>  
-                            </div>
+        <div id="contenido">
+            <div id="titulo">
+                <a class="tit normal" id="uno" onclick="cambiarPestana(this)" href="#">Primera Fase</a>
+                <a class="tit normal" id="dos" onclick="cambiarPestana(this)" href="#">Segunda Fase</a>
+            </div>
+            <div id="pestana1" class="pestana-content seleccionado">
+                <section>
+                    <div class="resultados">
+                        <div class="elemento">
+                            <time datetime="2024-05-06">sábado, 6 de mayo del 2024</time>
                         </div>
-                        <div class="resultados">
-                            <div class="elemento">
-                                <time datetime="2024-05-12">domingo, 12 de mayo del 2024</time>
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/aucas.png" alt="Aucas">
-                                <p>Aucas</p>
-                                <p><strong>1</strong></p>
-                                <img src="assets/img/Resultados/emelec.png" alt="Emelec">
-                                <p>Emelec</p>
-                                <p><strong>2</strong></p> 
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
-                                <p>Liga de Quito</p>
-                                <p><strong>2</strong></p>
-                                <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
-                                <p>El Nacional</p>
-                                <p><strong>2</strong></p>  
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
-                                <p>Barcelona</p>
-                                <p><strong>3</strong></p>
-                                <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
-                                <p>Independiente del Valle</p>
-                                <p><strong>0</strong></p>  
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/aucas.png" alt="Aucas">
-                                <p>Aucas</p>
-                                <p><strong>0</strong></p>
-                                <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
-                                <p>El Nacional</p>
-                                <p><strong>3</strong></p>  
-                            </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                            <p>Barcelona</p>
+                            <p><strong>5</strong></p>
+                            <img src="assets/img/Resultados/emelec.png" alt="Emelec">
+                            <p>Emelec </p>
+                            <p><strong>0</strong></p> 
                         </div>
-                        <div class="resultados">
-                            <div class="elemento">
-                                <time datetime="2024-05-18">sábado, 18 de mayo del 2024</time>
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
-                                <p>Barcelona</p>
-                                <p><strong>4</strong></p>
-                                <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
-                                <p>Liga de Quito</p>
-                                <p><strong>0</strong></p> 
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
-                                <p>Barcelona</p>
-                                <p><strong>3</strong></p>
-                                <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
-                                <p>El Nacional</p>
-                                <p><strong>3</strong></p>  
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
-                                <p>Independiente del Valle</p>
-                                <p><strong>2</strong></p>
-                                <img src="assets/img/Resultados/aucas.png" alt="Aucas">
-                                <p>Aucas</p>
-                                <p><strong>0</strong></p>  
-                            </div>
-                            <div class="elemento2">
-                                <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
-                                <p>Liga de Quito</p>
-                                <p><strong>5</strong></p>
-                                <img src="assets/img/Resultados/emelec.png" alt="Emelec">
-                                <p>Emelec</p>
-                                <p><strong>0</strong></p>  
-                            </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                            <p>El Nacional</p>
+                            <p><strong>1</strong></p>
+                            <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                            <p>Independiente del Valle</p>
+                            <p><strong>2</strong></p>  
                         </div>
-                    </section>
-                    <section>
-                        <div id="tabla">
-                            <details>
-                                <summary>Tabla de posiciones</summary>
-                                <table>
-                                    <tr>
-                                        <th>Equipos</th>
-                                        <th>PJ</th>
-                                        <th>G</th>
-                                        <th>E</th>
-                                        <th>P</th>
-                                        <th>GF</th>
-                                        <th>GC</th>
-                                        <th>DG</th>
-                                        <th>PTS</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Barcelona</td>
-                                        <td>4</td>
-                                        <td>3</td>
-                                        <td>1</td>
-                                        <td>0</td>
-                                        <td>15</td>
-                                        <td>3</td>
-                                        <td>12</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Independiente del Valle</td>
-                                        <td>4</td>
-                                        <td>2</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>5</td>
-                                        <td>5</td>
-                                        <td>0</td>
-                                        <td>7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>El Nacional</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>1</td>
-                                        <td>9</td>
-                                        <td>7</td>
-                                        <td>2</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Liga de Quito</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>7</td>
-                                        <td>9</td>
-                                        <td>-2</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Emelec</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>12</td>
-                                        <td>-9</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Aucas</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>7</td>
-                                        <td>-3</td>
-                                        <td>3</td>
-                                    </tr>
-                                </table>
-                            </details>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/aucas.png" alt="Aucas">
+                            <p>Aucas</p>
+                            <p><strong>3</strong></p>
+                            <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                            <p>Liga de Quito</p>
+                            <p><strong>0</strong></p>  
                         </div>
-                    </section>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                            <p>Independiente del Valle</p>
+                            <p><strong>1</strong></p>
+                            <img src="assets/img/Resultados//emelec.png" alt="Emelec">
+                            <p>Emelec</p>
+                            <p><strong>1</strong></p>  
+                        </div>
+                    </div>
+                    <div class="resultados">
+                        <div class="elemento">
+                            <time datetime="2024-05-12">domingo, 12 de mayo del 2024</time>
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/aucas.png" alt="Aucas">
+                            <p>Aucas</p>
+                            <p><strong>1</strong></p>
+                            <img src="assets/img/Resultados/emelec.png" alt="Emelec">
+                            <p>Emelec</p>
+                            <p><strong>2</strong></p> 
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                            <p>Liga de Quito</p>
+                            <p><strong>2</strong></p>
+                            <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                            <p>El Nacional</p>
+                            <p><strong>2</strong></p>  
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                            <p>Barcelona</p>
+                            <p><strong>3</strong></p>
+                            <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                            <p>Independiente del Valle</p>
+                            <p><strong>0</strong></p>  
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/aucas.png" alt="Aucas">
+                            <p>Aucas</p>
+                            <p><strong>0</strong></p>
+                            <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                            <p>El Nacional</p>
+                            <p><strong>3</strong></p>  
+                        </div>
+                    </div>
+                    <div class="resultados">
+                        <div class="elemento">
+                            <time datetime="2024-05-18">sábado, 18 de mayo del 2024</time>
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                            <p>Barcelona</p>
+                            <p><strong>4</strong></p>
+                            <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                            <p>Liga de Quito</p>
+                            <p><strong>0</strong></p> 
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                            <p>Barcelona</p>
+                            <p><strong>3</strong></p>
+                            <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                            <p>El Nacional</p>
+                            <p><strong>3</strong></p>  
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                            <p>Independiente del Valle</p>
+                            <p><strong>2</strong></p>
+                            <img src="assets/img/Resultados/aucas.png" alt="Aucas">
+                            <p>Aucas</p>
+                            <p><strong>0</strong></p>  
+                        </div>
+                        <div class="elemento2">
+                            <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                            <p>Liga de Quito</p>
+                            <p><strong>5</strong></p>
+                            <img src="assets/img/Resultados/emelec.png" alt="Emelec">
+                            <p>Emelec</p>
+                            <p><strong>0</strong></p>  
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div id="tabla">
+                        <details>
+                            <summary>Tabla de posiciones</summary>
+                            <table>
+                                <tr>
+                                    <th>Equipos</th>
+                                    <th>PJ</th>
+                                    <th>G</th>
+                                    <th>E</th>
+                                    <th>P</th>
+                                    <th>GF</th>
+                                    <th>GC</th>
+                                    <th>DG</th>
+                                    <th>PTS</th>
+                                </tr>
+                                <tr>
+                                    <td>Barcelona</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>15</td>
+                                    <td>3</td>
+                                    <td>12</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>Independiente del Valle</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>El Nacional</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>9</td>
+                                    <td>7</td>
+                                    <td>2</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Liga de Quito</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>7</td>
+                                    <td>9</td>
+                                    <td>-2</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>Emelec</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>12</td>
+                                    <td>-9</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>Aucas</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>7</td>
+                                    <td>-3</td>
+                                    <td>3</td>
+                                </tr>
+                            </table>
+                        </details>
+                    </div>
+                </section>
+            </div>
+            <div id="pestana2" class="pestana-content">
+                <div class="resultados">
+                    <div class="elemento">
+                        <time datetime="2024-06-05">miercoles, 5 de junio del 2024</time>
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                        <p>Independiente del Valle</p>
+                        <p><strong>0</strong></p>
+                        <img src="assets/img/Resultados/aucas.png" alt="Aucas">
+                        <p>Aucas</p>
+                        <p><strong>2</strong></p> 
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/emelec.png" alt="Emelec">
+                        <p>Emelec</p>
+                        <p><strong>3</strong></p>
+                        <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                        <p>Liga de Quito</p>
+                        <p><strong>0</strong></p>  
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                        <p>Barcelona</p>
+                        <p><strong>1</strong></p>
+                        <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                        <p>El Nacional</p>
+                        <p><strong>0</strong></p>  
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                        <p>Liga de Quito</p>
+                        <p><strong>3</strong></p>
+                        <img src="assets/img/Resultados/aucas.png" alt="Aucas">
+                        <p>Aucas</p>
+                        <p><strong>2</strong></p>  
+                    </div>
                 </div>
-        <div id="pestana2" class="pestana-content">
-            <div class="resultados">
-                <div class="elemento">
-                    <time datetime="2024-05-06">sábado, 7 de mayo del 2024</time>
+                <div class="resultados">
+                    <div class="elemento">
+                        <time datetime="2024-06-11">martes, 11 de junio del 2024</time>
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/emelec.png" alt="Emelec">
+                        <p>Emelec</p>
+                        <p><strong>2</strong></p>
+                        <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                        <p>El Nacional</p>
+                        <p><strong>0</strong></p>  
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                        <p>Barcelona</p>
+                        <p><strong>1</strong></p>
+                        <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                        <p>Independiente del Valle </p>
+                        <p><strong>1</strong></p> 
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
+                        <p>Independiente del Valle</p>
+                        <p><strong>0</strong></p>
+                        <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
+                        <p>El Nacional</p>
+                        <p><strong>3</strong></p>  
+                    </div>
+                    <div class="elemento2">
+                        <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
+                        <p>Barcelona</p>
+                        <p><strong>0</strong></p>
+                        <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
+                        <p>Liga de Quito</p>
+                        <p><strong>2</strong></p>  
+                    </div>
                 </div>
-                <div class="elemento2">
-                    <img src="assets/img/Resultados/barcelona.png" alt="Barcelona">
-                    <p>Barcelona</p>
-                    <p><strong>15</strong></p>
-                    <img src="assets/img/Resultados/emelec.png" alt="Emelec">
-                    <p>Emelec </p>
-                    <p><strong>0</strong></p> 
-                </div>
-                <div class="elemento2">
-                    <img src="assets/img/Resultados/nacional.png" alt="El Nacional">
-                    <p>El Nacional</p>
-                    <p><strong>1</strong></p>
-                    <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
-                    <p>Independiente del Valle</p>
-                    <p><strong>2</strong></p>  
-                </div>
-                <div class="elemento2">
-                    <img src="assets/img/Resultados/aucas.png" alt="Aucas">
-                    <p>Aucas</p>
-                    <p><strong>3</strong></p>
-                    <img src="assets/img/Resultados/liga.png" alt="Liga de Quito">
-                    <p>Liga de Quito</p>
-                    <p><strong>0</strong></p>  
-                </div>
-                <div class="elemento2">
-                    <img src="assets/img/Resultados/independiente.png" alt="Independiente del Valle">
-                    <p>Independiente del Valle</p>
-                    <p><strong>1</strong></p>
-                    <img src="assets/img/Resultados//emelec.png" alt="Emelec">
-                    <p>Emelec</p>
-                    <p><strong>1</strong></p>  
+                <div id="tabla">
+                    <details>
+                        <summary>Tabla de posiciones</summary>
+                        <table>
+                            <tr>
+                                <th>Equipos</th>
+                                <th>PJ</th>
+                                <th>G</th>
+                                <th>E</th>
+                                <th>P</th>
+                                <th>GF</th>
+                                <th>GC</th>
+                                <th>DG</th>
+                                <th>PTS</th>
+                            </tr>
+                            <tr>
+                                <td>Emelec</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Liga de Quito</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>5</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Barcelona</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>-1</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Aucas</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>El Nacional</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>0</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Independiente del Valle</td>
+                                <td>3</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>6</td>
+                                <td>-5</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </details>
                 </div>
             </div>
+
         </div>
-        <div id="tabla">
-            <details>
-                <summary>Tabla de posiciones</summary>
-                <table>
-                    <tr>
-                        <th>Equipos</th>
-                        <th>PJ</th>
-                        <th>G</th>
-                        <th>E</th>
-                        <th>P</th>
-                        <th>GF</th>
-                        <th>GC</th>
-                        <th>DG</th>
-                        <th>PTS</th>
-                    </tr>
-                    <tr>
-                        <td>Barcelona</td>
-                        <td>4</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>15</td>
-                        <td>3</td>
-                        <td>12</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Independiente del Valle</td>
-                        <td>4</td>
-                        <td>2</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>0</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>El Nacional</td>
-                        <td>4</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>1</td>
-                        <td>9</td>
-                        <td>7</td>
-                        <td>2</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>Liga de Quito</td>
-                        <td>4</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>7</td>
-                        <td>9</td>
-                        <td>-2</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Emelec</td>
-                        <td>4</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>12</td>
-                        <td>-9</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Aucas</td>
-                        <td>4</td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>7</td>
-                        <td>-3</td>
-                        <td>3</td>
-                    </tr>
-                </table>
-            </details>
-        </div>
-    </div>
     </main>
 
     <footer>

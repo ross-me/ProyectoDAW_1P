@@ -5,7 +5,7 @@
 }
 
    /* Pseudoclases */
-   a:hover {
+   .menu a:hover {
     text-decoration: underline;
     color:rgb(160, 215, 247);
 }
@@ -115,4 +115,48 @@ th, td {
 #contenedorContenidoE{
     width: 90%;
     margin: 0 auto;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.menu li {
+    position: relative;
+    display: inline-block;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.menu1 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #132144;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1000;
+}
+
+.menu1 li {
+    display: block;
+}
+
+.menu li:hover .menu1 {
+    display: block;
+}
+
+.menu1 a {
+    padding: 10px;
+    color: white;
 }

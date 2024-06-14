@@ -134,6 +134,10 @@
             cursor: pointer;
         }
 
+        .equipo-button:hover{
+            background-color: black;
+        }
+
         .contenedorNoticias-item:hover{
             transform: translateY(-10px);
            
@@ -212,6 +216,7 @@
                                     Se busca niños y jovenes de hasta 15 años que deseen registrarse en el programa gratuito 
                                     proporcionado por la alcaldia de Guayaquil que impulsa el bien, el deporte y la disciplina.
                                 </em>
+                                <button class="equipo-button" id="eventosButton">Eventos</button>
                             </p>
                         </div>
                     </section>
@@ -351,6 +356,12 @@
          document.getElementById('equiposButton').addEventListener('click', function() {
             window.location.href = 'equipos.html';
         });
+
+        document.getElementById('eventosButton').addEventListener('click', function() {
+            window.location.href = 'eventos.html';
+        });
+
+
     </script>
 
 </body>

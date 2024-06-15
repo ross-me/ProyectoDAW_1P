@@ -1,0 +1,74 @@
+@import url('colors.css');
+
+.wallpaper-sponsor {
+    height: 100vh;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Imagen de fondo */
+
+    background-image: url('../img/sponsor-back.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.invitation-sponsor-text h3 {
+    display: block;
+    color: var(--color-back-light);
+}
+
+form {
+    background-color: var(--color-primary);
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.button-sponsor-submit {
+    display: block;
+}
+
+.field-form {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.field-form:last-child {
+    margin-bottom: 0;
+}
+
+.field-form label {
+    display: inline-block;
+    width: 75px;
+    color: var(--color-back-light);
+}
+
+input[type="button"] {
+    cursor: pointer;
+    background-color: var(--color-back-light);
+    border: none;
+    padding: 10px 20px;
+    color: var(--color-primary);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    height: 30px;
+    background-color: var(--color-back-light);
+    border: none;
+    border-radius: 10px;
+}
+
+.invitation-sponsor-text {
+    width: 60%;
+}
+
+.invitation-sponsor-text h3 {
+    font-size: 36pt;
+    background-color: var(--color-primary);
+    padding: 20px;
+    border-radius: 20px;
+}

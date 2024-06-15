@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +9,28 @@
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/sponsors.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    <style>
+        input[type = "text"], #submit-sponsor{
+            background-color: beige;
+        }
+
+        .form-container{
+            background-color: rgb(6, 16, 51);
+        }
+         
+        .field-form label{
+            color: white;
+        }
+    </style>
 </head>
 
+
 <body>
-    <header>
-        <div class="container">
-            <aside id="logo-container">
+    <header> 
+        <div class ="container">
+            <aside id="logoContenedor">
                 <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
-            </aside>
+             </aside>
 
             <h1>Eventos Deportivos</h1>
             <nav>
@@ -79,11 +92,13 @@
         </div>
     </main>
     <script type="module" src="script/sponsor-form-validator.js">f</script>
+
     <footer>
-        <div class="footer-container">
+        <div class="FooterContenedor">
             <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
         </div>
     </footer>
+
 </body>
 
 </html>

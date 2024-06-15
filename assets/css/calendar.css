@@ -1,0 +1,51 @@
+.calendar-header {
+    background: #bfbfbf;
+    height: 100px;
+    align-content: center;
+}
+
+.calendar-days {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.event {
+    height: 100px;
+}
+
+.day-name {
+    font-weight: bold;
+    text-align: center;
+}
+
+.day-name-date {
+    font-weight: normal;
+    text-align: center;
+    font-size: small;
+    color: rgb(13, 13, 13, 0.5);
+}
+
+.day-name>a {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(13, 13, 13);
+}
+
+#date-picker {
+    margin: auto;
+}
+
+.content-event {
+    height: 100px;
+    display: flex;
+}
+
+.time-event {
+    align-content: center;
+}
+
+.time-event>h3 {
+    padding: 20px;
+    font-size: 0.75em;
+}

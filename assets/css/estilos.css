@@ -26,6 +26,13 @@ body{
     background-color: rgb(216, 232, 240);
 }
 
+
+body h2, h3{
+    padding: 3px;
+    border-bottom: 2px solid rgb(6, 16, 51);
+}
+
+
 header, footer {
     background-color: rgb(6, 16, 51);
     color: white;
@@ -160,3 +167,5 @@ th, td {
     padding: 10px;
     color: white;
 }
+
+

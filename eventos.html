@@ -47,19 +47,26 @@
 
 
 
-
-    
-
         label {
             display: block;
             margin: 10px 0 5px;
         }
 
-        input[type="text"], input[type = "number"], input[type = "date"], input[type="file"], textarea {
+        input[type = "date"],  textarea{
+            width: 45%;
+            
+        }
+
+        input[type = "number"]{
+            width: 35%;
+        }
+
+        input[type = "text"], input[type="file"]{
+            width: 49%;
             display: block;
-            width: 50%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 8px;
+            margin-bottom: 9px;
+
         }
 
         .formularioFlex {
@@ -140,6 +147,37 @@ h2, h3{
             
         }
 
+
+
+
+        /* Estilos para los elementos del formulario 
+        */
+
+        .formItem {
+            display: flex; /* Flexbox para alinear elementos en fila */
+            align-items: center; /* Centrar verticalmente los elementos */
+            margin-bottom: 5px; /* Margen inferior entre elementos */
+        }
+
+        .formItem label {
+            /* Ancho fijo para etiquetas */
+            margin-right: 20px; /* Margen derecho entre etiqueta e input */
+        }
+
+
+        .formItem input[type="radio"] {
+            margin-right: 10px; /* Espaciado entre los radios */
+        }
+
+
+        .mensaje-error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+
     </style>
 </head>
 
@@ -196,46 +234,56 @@ h2, h3{
 
                         <div class="formularioFlex"> 
 
+                            
                             <form id="formularioCrearTorneo">
                                 <h4>Registro de torneo</h4><br>
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" name= nombre id="nombreTorneo" >
-                                <br>
-                                <label for="descripcionTorneo">Descripción:</label>
-                                <textarea id="descripcionTorneo" name="descripcionTorneo" required></textarea>
-                                <br>
-                                <label for="imagenTorneo">Imagen:</label>
-                                <input type="file" id="imagenTorneo" name="imagenTorneo" accept="image/*" required>
-                                <br>
-
-                                <label for="tipoTorneo">Tipo de Torneo:</label>
-                               
-                                <label for="liga">Liga</label>
-                                <input type="radio" id="liga" name="tipoTorneo" value="liga">
-                                <label for="relampago">Relámpago</label>
-                                <input type="radio" id="relampago" name="tipoTorneo" value="relampago">
-                                <br>
-                                <label for="limiteParticipantes">Límite de Participantes:</label>
-                                <input type="number" id="limiteParticipantes" name="limiteParticipantes">
-                                <br>
-                                <label for="fechaInicio">Fecha de Inicio:</label>
-                                <input type="date" id="fechaInicio" name="fechaInicio">
-                                <br>
-
-                                <button type ="submit">Crear Torneo</button>
-                                <button id ="cancelarForm" type="reset"> Cancelar</button>
+                                
+                                <div class="formItem">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" id="nombreTorneo" name="nombre">
+                                    <p class="mensaje-error" id="errorNombre"></p>
+                                </div>
+                                <div class="formItem">
+                                    <label for="descripcionTorneo">Descripción:</label>
+                                    <textarea id="descripcionTorneo" name="descripcionTorneo"></textarea>
+                                    <p class="mensaje-error" id="errorDescripcion"></p>
+                                </div>
+                                <div class="formItem">
+                                    <label for="imagenTorneo">Imagen:</label>
+                                    <input type="file" id="imagenTorneo" name="imagenTorneo" >
+                                    <p class="mensaje-error" id="errorImagen"></p>
+                                </div>
+                                <div class="formItem">
+                                    <label>Tipo de Torneo:</label>
+                                    <input type="radio" id="liga" name="tipoTorneo" value="liga">
+                                    <label for="liga">Liga</label>
+                                    <input type="radio" id="relampago" name="tipoTorneo" value="relampago">
+                                    <label for="relampago">Relámpago</label>
+                                    <p class="mensaje-error" id="errorTipoTorneo"></p>
+                                </div>
+                                <div class="formItem">
+                                    <label for="limiteParticipantes">Límite de Participantes:</label>
+                                    <input type="number" id="limiteParticipantes" name="limiteParticipantes">
+                                    <p class="mensaje-error" id="errorLimiteParticipantes"></p>
+                                </div>
+                                <div class="formItem">
+                                    <label for="fechaInicio">Fecha de Inicio:</label>
+                                    <input type="date" id="fechaInicio" name="fechaInicio">
+                                    <p class="mensaje-error" id="errorFechaInicio"></p>
+                                </div>
+                                <button type="submit">Crear Torneo</button>
+                                <button id="cancelarForm" type="reset">Cancelar</button>
                             </form>
+                            
 
                             <div class="bienvenida-img">
                                 <img src="https://img.freepik.com/vector-premium/torneo-futbol-plantilla-fondo-azul_9111-420.jpg" alt="Bienvenido">
                             </div>
 
                         </div>
-
                     </div>
                 </section>
             </div>
-
 
             <div class="torneosDisponiblesSeccion">
                 <h2> Torneos vigentes</h2>
@@ -386,7 +434,84 @@ h2, h3{
             });
         });
 
-    </script>
+        //Validación de los campos
 
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const formulario = document.getElementById('formularioCrearTorneo');
+            const cancelarBtn = document.getElementById('cancelarForm');
+
+            formulario.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Obtener valores de los campos
+                const nombre = document.getElementById('nombreTorneo').value.trim();
+                const descripcion = document.getElementById('descripcionTorneo').value.trim();
+                const imagen = document.getElementById('imagenTorneo').files[0];
+                const tipoTorneo = document.querySelector('input[name="tipoTorneo"]:checked');
+                const limiteParticipantes = parseInt(document.getElementById('limiteParticipantes').value);
+                const fechaInicio = new Date(document.getElementById('fechaInicio').value);
+
+                // Resetear mensajes de error
+                resetearMensajesError();
+
+                let valido = true;
+
+                // Validar nombre (no debe contener dígitos y ser obligatorio)
+                if (nombre === '') {
+                    valido = false;
+                    mostrarError('errorNombre', 'Ingrese un nombre.');
+                } else if (/\d/.test(nombre)) {
+                    valido = false;
+                    mostrarError('errorNombre', 'No se permiten dígitos.');
+                }
+
+                // Validar descripción (obligatoria)
+                if (descripcion === '') {
+                    valido = false;
+                    mostrarError('errorDescripcion', 'Ingrese una descripción.');
+                }
+
+                // Validar imagen (obligatoria)
+                if (!imagen) {
+                    valido = false;
+                    mostrarError('errorImagen', 'Seleccione una imagen.');
+                }
+
+                // Validar tipo de torneo (debe seleccionar al menos uno)
+                if (!tipoTorneo) {
+                    valido = false;
+                    mostrarError('errorTipoTorneo', 'Seleccione un tipo de torneo.');
+                }
+
+                // Validar límite de participantes (debe ser mayor que 1)
+                if (limiteParticipantes <= 1 || isNaN(limiteParticipantes)) {
+                    valido = false;
+                    mostrarError('errorLimiteParticipantes', 'Debe ser mayor que 1.');
+                }
+
+                // Validar fecha de inicio (debe ser superior a la fecha actual)
+                const fechaActual = new Date();
+                if (fechaInicio <= fechaActual) {
+                    valido = false;
+                    mostrarError('errorFechaInicio', 'seleccione una fecha valida');
+                }
+                
+            });
+
+            // Función para mostrar mensajes de error
+            function mostrarError(idCampo, mensaje) {
+                const campoError = document.getElementById(idCampo);
+                campoError.textContent = mensaje;
+            }
+
+            // Función para resetear todos los mensajes de error
+            function resetearMensajesError() {
+                const mensajesError = document.querySelectorAll('.mensaje-error');
+                mensajesError.forEach(mensaje => mensaje.textContent = '');
+            }
+        });
+
+    </script>
 </body>
 </html>

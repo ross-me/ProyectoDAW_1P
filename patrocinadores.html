@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <meta name="author" content="Roosevelt Remache Abrigo">
+    <title>Eventos Deportivos — Patrocinadores</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/sponsors.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <aside id="logo-container">
+                <img id="logo" src="assets/img/LOGO.jpg" alt="Imagen de logo">
+            </aside>
+
+            <h1>Eventos Deportivos</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="equipos.html">Equipos</a></li>
+                    <li><a href="#">Registrar</a>
+                        <ul class="menu1">
+                            <li><a href="registrar.html">Registrar Equipos</a></li>
+                            <li><a href="torneos.html">Registrar Torneos</a></li>
+                            <li><a href="ingresarResultados.html">Registrar Resultados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="resultados.html">Resultados</a></li>
+                    <li><a href="#">Más</a>
+                        <ul class="menu1">
+                            <li><a href="patrocinadores.html">Patrocinadores</a></li>
+                            <li><a href="sugerencia.html">Sugerencias</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>       
+        </div>
+    </header>
+    
+    <main>
+        <div class="wallpaper-sponsor">
+            <aside>
+                <div class="invitation-sponsor-text">
+                    <h3>Únete a nuestros patrocinadores</h3>
+                </div>
+                <div class="current-sponsors"></div>
+            </aside>
+            <section class="form-container">
+                <form action="send-sponsor">
+                    <div class="field-form">
+                        <label for="name-sponsor">Nombre</label>
+                        <input type="text" id="name-sponsor">
+                    </div>
+                    <div class="field-form">
+                        <label for="lastname-sponsor">Apellido</label>
+                        <input type="text" id="lastname-sponsor">
+                    </div>
+                    <div class="field-form">
+                        <label for="email-sponsor">E-mail</label>
+                        <input type="text" id="email-sponsor">
+                    </div>
+                    <div class="field-form">
+                        <label for="phone-sponsor">Teléfono</label>
+                        <input type="text" id="phone-sponsor">
+                    </div>
+                    <div class="field-form">
+                        <input type="button" id="submit-sponsor" value="Enviar">
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <script type="module" src="script/sponsor-form-validator.js">f</script>
+    <footer>
+        <div class="footer-container">
+            <p>Copyright &copy; 2024. Equipo 8. Todos los derechos reservados</p>
+        </div>
+    </footer>
+</body>
+
+</html>

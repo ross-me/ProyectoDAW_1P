@@ -148,27 +148,23 @@ h2, h3{
         }
 
 
-
-
         /* Estilos para los elementos del formulario 
         */
 
         .formItem {
-            display: flex; /* Flexbox para alinear elementos en fila */
-            align-items: center; /* Centrar verticalmente los elementos */
-            margin-bottom: 5px; /* Margen inferior entre elementos */
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 5px; 
         }
 
         .formItem label {
-            /* Ancho fijo para etiquetas */
-            margin-right: 20px; /* Margen derecho entre etiqueta e input */
+            margin-right: 20px; 
         }
 
 
         .formItem input[type="radio"] {
             margin-right: 10px; /* Espaciado entre los radios */
         }
-
 
         .mensaje-error {
             color: red;
@@ -177,10 +173,8 @@ h2, h3{
             margin-left: 5px;
         }
 
-
     </style>
 </head>
-
 
 <body>
         <header> 
@@ -197,7 +191,7 @@ h2, h3{
                         <li><a href="#">Registrar</a>
                             <ul class="menu1">
                                 <li><a href="registrar.html">Registrar Equipos</a></li>
-                                <li><a href="eventos.html">Registrar Torneos</a></li>
+                                <li><a href="torneos.html">Registrar Torneos</a></li>
                                 <li><a href="ingresarResultados.html">Registrar Resultados</a></li>
                             </ul>
                         </li>
@@ -215,14 +209,8 @@ h2, h3{
             </div>
         </header>
 
-
-
     <main>
         <div class = "container">
-
-            <!--h1 style="font-size: 18pt;">Bienvenido a la sección de Torneos</h1>
-            <img style = "display: none;" id="torneoImagen" src="https://static.wixstatic.com/media/11062b_c69916816e0f43139485e2aa4663c1ee~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/11062b_c69916816e0f43139485e2aa4663c1ee~mv2.jpg" alt="Torneo-ImagenPrincipal"-->
-           
             <div id="registrarTorneosSeccion">
                 <h2> Registrar nuevos torneos</h2>
                 <p> En esta sección podrá crear nuevos torneos</p>
@@ -231,10 +219,8 @@ h2, h3{
                     <button id="addTorneoBtn" style="text-align: center;"> <strong>Crear Torneo </strong><br>+</button>
 
                     <div id="formularioContenedor" style="display: none";>
-
                         <div class="formularioFlex"> 
 
-                            
                             <form id="formularioCrearTorneo">
                                 <h4>Registro de torneo</h4><br>
                                 
@@ -275,11 +261,9 @@ h2, h3{
                                 <button id="cancelarForm" type="reset">Cancelar</button>
                             </form>
                             
-
                             <div class="bienvenida-img">
                                 <img src="https://img.freepik.com/vector-premium/torneo-futbol-plantilla-fondo-azul_9111-420.jpg" alt="Bienvenido">
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -302,15 +286,10 @@ h2, h3{
             </div>
 
             <div class = "equiposRegistrados">
-               
                 <h2>Información de torneos y equipos registrados</h2>
                 <div id="informacionContainer"></div>
                  <!--agregando los equipos-->
-
             </div>
-
-
-
         </div>
 
     </main>
@@ -337,9 +316,7 @@ h2, h3{
                 formularioContenedor.style.display = "none"
             });
 
-
 //           formularioCrearTorneo.addEventListener('submit', function(event)
-
                 formularioCrearTorneo.addEventListener("submit", function(event){
                 event.preventDefault();
 
@@ -349,8 +326,7 @@ h2, h3{
 
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    
-                        const torneo = document.createElement('div');
+                        let torneo = document.createElement('div');
                         torneo.classList.add('torneosItem');
 
                         //Modificar el contenido del div torneo
@@ -372,7 +348,6 @@ h2, h3{
                 //Resetear el formulario
                 formularioCrearTorneo.reset();
                 formularioContenedor.style.display = 'none';
-
              });
 
         //Funcion para mostrar el formulario de registro de equipos al torneo                 
@@ -390,25 +365,22 @@ h2, h3{
                 equipoForm.addEventListener('submit', function(event) {
                     event.preventDefault();
                     
-                    const nombreEquipo = equipoForm.querySelector('#nombreEquipo').value;
+                    let nombreEquipo = equipoForm.querySelector('#nombreEquipo').value;
                     agregarEquipoATorneo(torneo, imagen, nombreEquipo);
-                    
                     equipoForm.remove();
                 });
-
-                document.getElementById('informacionContainer').appendChild(equipoForm);
+                document.getElementById("informacionContainer").appendChild(equipoForm);
             }
-
 
       // Función para agregar equipo al torneo correspondiente
             function agregarEquipoATorneo(torneo, imagen, equipo) {
-                const torneoInfoContainer = document.getElementById('informacionContainer');
+                const torneoInfoContainer = document.getElementById("informacionContainer");
                 let torneoInfo = torneoInfoContainer.querySelector(`[datosTorneo="${torneo}"]`);
                 
                 if (!torneoInfo) {
-                    torneoInfo = document.createElement('div');
-                    torneoInfo.setAttribute('datosTorneo', torneo);
-                    torneoInfo.classList.add('torneo-info');
+                    torneoInfo = document.createElement("div");
+                    torneoInfo.setAttribute("datosTorneo", torneo);
+                    torneoInfo.classList.add("torneo-info");
                     torneoInfo.innerHTML = 
                     `
                         <img src="${imagen}" alt="${torneo}">
@@ -417,46 +389,43 @@ h2, h3{
                     torneoInfoContainer.appendChild(torneoInfo);
                 }
                 
-                const equipoItem = document.createElement('div');
-                equipoItem.classList.add('equipo-item');
+                const equipoItem = document.createElement("div");
+                equipoItem.classList.add("equipo-item");
                 equipoItem.innerText = equipo;
                 
                 torneoInfo.appendChild(equipoItem);
             }
 
         // Asignar funcion al evento estatico que no está formado por parametros externos
-        document.querySelectorAll('.torneosItem .addEquipoBtn').forEach(button => {
+        document.querySelectorAll(".torneosItem .addEquipoBtn").forEach(button => {
             button.addEventListener('click', function() {
-                let torneoItem = this.closest('.torneosItem');
-                let nombreTorneo = torneoItem.querySelector('h3').innerText;
-                let imagenTorneo = torneoItem.querySelector('img').src;
+                let torneoItem = this.closest(".torneosItem");
+                let nombreTorneo = torneoItem.querySelector("h3").innerText;
+                let imagenTorneo = torneoItem.querySelector("img").src;
                 mostrarFormularioRegistroEquipo(nombreTorneo, imagenTorneo);
             });
         });
 
         //Validación de los campos
-
-
         document.addEventListener('DOMContentLoaded', function() {
-            const formulario = document.getElementById('formularioCrearTorneo');
-            const cancelarBtn = document.getElementById('cancelarForm');
+            const formulario = document.getElementById("formularioCrearTorneo");
+            const cancelarBtn = document.getElementById("cancelarForm");
 
-            formulario.addEventListener('submit', function(event) {
+            formulario.addEventListener("submit", function(event) {
                 event.preventDefault();
 
                 // Obtener valores de los campos
-                const nombre = document.getElementById('nombreTorneo').value.trim();
-                const descripcion = document.getElementById('descripcionTorneo').value.trim();
-                const imagen = document.getElementById('imagenTorneo').files[0];
+                const nombre = document.getElementById("nombreTorneo").value.trim();
+                const descripcion = document.getElementById("descripcionTorneo").value.trim();
+                const imagen = document.getElementById("imagenTorneo").files[0];
                 const tipoTorneo = document.querySelector('input[name="tipoTorneo"]:checked');
-                const limiteParticipantes = parseInt(document.getElementById('limiteParticipantes').value);
-                const fechaInicio = new Date(document.getElementById('fechaInicio').value);
+                const limiteParticipantes = parseInt(document.getElementById("limiteParticipantes").value);
+                const fechaInicio = new Date(document.getElementById("fechaInicio").value);
 
                 // Resetear mensajes de error
                 resetearMensajesError();
 
                 let valido = true;
-
                 // Validar nombre (no debe contener dígitos y ser obligatorio)
                 if (nombre === '') {
                     valido = false;

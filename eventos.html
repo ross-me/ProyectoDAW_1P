@@ -45,6 +45,9 @@
             margin-top: 20px;
         }
 
+
+
+
     
 
         label {
@@ -52,7 +55,7 @@
             margin: 10px 0 5px;
         }
 
-        input[type="text"], textarea, input[type="file"] {
+        input[type="text"], input[type = "number"], input[type = "date"], input[type="file"], textarea {
             display: block;
             width: 50%;
             padding: 10px;
@@ -204,6 +207,21 @@ h2, h3{
                                 <label for="imagenTorneo">Imagen:</label>
                                 <input type="file" id="imagenTorneo" name="imagenTorneo" accept="image/*" required>
                                 <br>
+
+                                <label for="tipoTorneo">Tipo de Torneo:</label>
+                               
+                                <label for="liga">Liga</label>
+                                <input type="radio" id="liga" name="tipoTorneo" value="liga">
+                                <label for="relampago">Relámpago</label>
+                                <input type="radio" id="relampago" name="tipoTorneo" value="relampago">
+                                <br>
+                                <label for="limiteParticipantes">Límite de Participantes:</label>
+                                <input type="number" id="limiteParticipantes" name="limiteParticipantes">
+                                <br>
+                                <label for="fechaInicio">Fecha de Inicio:</label>
+                                <input type="date" id="fechaInicio" name="fechaInicio">
+                                <br>
+
                                 <button type ="submit">Crear Torneo</button>
                                 <button id ="cancelarForm" type="reset"> Cancelar</button>
                             </form>
@@ -277,9 +295,9 @@ h2, h3{
                 formularioCrearTorneo.addEventListener("submit", function(event){
                 event.preventDefault();
 
-                const nombreTorneo = document.getElementById('nombreTorneo').value;
-                const descripcionTorneo = document.getElementById('descripcionTorneo').value;
-                const imagenTorneo = document.getElementById('imagenTorneo').files[0];
+                let nombreTorneo = document.getElementById('nombreTorneo').value;
+                let descripcionTorneo = document.getElementById('descripcionTorneo').value;
+                let imagenTorneo = document.getElementById('imagenTorneo').files[0];
 
                 const reader = new FileReader();
                 reader.onload = function(e) {

@@ -62,7 +62,7 @@ function validar(event){
     }else if (isNaN(cantidadJ)){
         resultado = false;
         mensaje("Cantidad debe ser un numero",txtCantidad);
-    }else if(cantidadJ<2 || cantidadJ>=20){
+    }else if(cantidadJ<11 || cantidadJ>=20){
         resultado=false;
         mensaje("Cantidad debe ser entre 11 y 20",txtCantidad);
     }

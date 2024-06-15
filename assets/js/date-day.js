@@ -1,30 +1,8 @@
-const jsonString =
-    '[' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-20T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-20T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-20T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-21T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-21T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-21T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-22T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-22T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-23T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-24T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-24T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-24T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-25T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-25T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-25T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-25T14:30:00"},' +
-    '{"localTeamID": 1, "visitTeamID": 2, "date": "2024-05-26T14:30:00"}' +
-    ']';
-
-const jsonObj = JSON.parse(jsonString);
+import events from '../resources/events.json' with {type: 'json'}
 
 const dates = today => {
 
     const dates = [];
-
 
     for (let i = 0; i < 7; i++) {
         const date = new Date(today);
@@ -41,16 +19,13 @@ const writeDates = vectorDates => {
 
     const dayNameDate = document.querySelectorAll('.day-name-date');
 
-    for (let i = 0; i < dayNameDate.length; i++)
+    for (let i = 0; i < dayNameDate.length; i++) {
         dayNameDate[i].innerHTML = '<br>' +
             vectorDates[i].getDate() + " / " +
             vectorDates[i].getMonth() + " / " +
             vectorDates[i].getFullYear();
+    }
 }
-
-const createSectionEvent = () => {
-
-};
 
 const writeEvents = date => {
 
@@ -58,14 +33,14 @@ const writeEvents = date => {
     let stringHtml = '';
 
     date.setHours(0, 0, 0, 0);
-    for (let i = 0; i < jsonObj.length; i++) {
-        const iDate = new Date(jsonObj[i].date);
+    for (let i = 0; i < events.length; i++) {
+        const iDate = new Date(events[i].date);
         iDate.setHours(0, 0, 0, 0);
         if (date.getTime() == iDate.getTime()) {
 
             stringHtml +=
                 '<div class="event">' +
-                'Hora de Juego: ' + jsonObj[i].date +
+                'Hora de Juego: ' + events[i].date +
                 '</div><hr>';
 
         }

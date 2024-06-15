@@ -238,7 +238,7 @@
     
                 <section class="contenedorNoticias">
                     <h3 class="section-title">Tabla de Posiciones</h3>
-                    <table>
+                    <table id="posicionesTabla">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -374,6 +374,16 @@
             window.location.href = 'eventos.html';
         });
 
+          // Selecciona todas las tarjetas de noticias
+         let noticiasItems = document.querySelectorAll('.contenedorNoticias-item');
+
+        // Añade un evento de clic a cada tarjeta de noticias
+        noticiasItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Cambia el color de fondo de la tarjeta al hacer clic
+                item.style.backgroundColor = item.style.backgroundColor === 'blue' ? '' : 'blue';
+            });
+        });
 
     </script>
 
